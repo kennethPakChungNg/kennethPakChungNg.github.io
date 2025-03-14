@@ -499,18 +499,49 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
             border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(45, 59, 224, 0.15);
+        }
+
+        .project-image-container {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
         }
 
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
-            border-bottom: 1px solid var(--card-border);
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(21, 20, 23, 0) 0%, rgba(21, 20, 23, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
         }
 
         .project-content {
@@ -523,18 +554,60 @@
         .project-title {
             font-size: 1.5rem;
             margin-bottom: 0.75rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .project-description {
             color: var(--gray);
             margin-bottom: 1.5rem;
             flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-highlights {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .highlight-item i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 0.5rem;
             margin-bottom: 1.5rem;
         }
 
@@ -550,16 +623,156 @@
         .project-links {
             display: flex;
             gap: 1rem;
+            margin-top: auto;
         }
 
         .project-link {
             color: var(--gray);
             font-size: 1.2rem;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .project-link:hover {
             color: var(--secondary);
+        }
+
+        .project-btn {
+            background: transparent;
+            color: var(--light);
+            border: 1px solid var(--secondary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .project-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .view-details-btn {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .project-card:hover .view-details-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modal-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .see-all-btn {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .see-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .project-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(21, 20, 23, 0.8);
+            color: var(--accent);
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .project-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(21, 20, 23, 0.8);
+            color: var(--light);
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .project-status.completed {
+            color: #4CAF50;
+        }
+
+        .project-status.in-progress {
+            color: #FFC107;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .project-tab {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--gray);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .project-tab:hover, .project-tab.active {
+            background: var(--gradient-1);
+            color: white;
+            border-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-image-container {
+                height: 200px;
+            }
         }
 
         /* Education Section */
@@ -1469,255 +1682,236 @@
             <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
                 Here are some of my recent projects showcasing my skills in AI, blockchain, data science, and full-stack development.
             </p>
+            
+            <!-- Project Filter Tabs -->
+            <div class="tab-container fade-in">
+                <button class="project-tab active" data-filter="all">All Projects</button>
+                <button class="project-tab" data-filter="ai">AI & ML</button>
+                <button class="project-tab" data-filter="blockchain">Blockchain</button>
+                <button class="project-tab" data-filter="data-science">Data Science</button>
+                <button class="project-tab" data-filter="web">Web Development</button>
+            </div>
+            
             <div class="projects-grid">
                 <!-- VectorShop Project -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title">VectorShop: Semantic Product Search System</h2>
-                        <p class="modal-subtitle">
-                            A production-ready semantic search engine for e-commerce with advanced NLP capabilities
-                        </p>
+                <div class="project-card stagger-in" data-category="ai">
+                    <div class="project-category">AI & ML</div>
+                    <div class="project-status completed">Completed</div>
+                    <div class="project-image-container">
+                        <img src="https://kennethpakchungng.github.io/images/vectorSearch.png" alt="VectorShop" class="project-image">
+                        <div class="project-overlay">
+                            <button class="view-details-btn" data-project="vectorshop">View Details</button>
+                        </div>
                     </div>
-                    <img src="https://kennethpakchungng.github.io/images/vectorSearch.png" alt="VectorShop" class="modal-image">
-                    <div class="modal-description">
-                        <p>
-                            VectorShop is a sophisticated semantic search system for e-commerce that enables natural language queries instead of keyword-based search. It combines sparse retrieval (BM25) with dense vector embeddings (FAISS) and transformer-based reranking to deliver highly relevant results even for complex queries.
+                    <div class="project-content">
+                        <h3 class="project-title">VectorShop: Semantic Search System</h3>
+                        <p class="project-subtitle">Production-ready e-commerce search with advanced NLP</p>
+                        <p class="project-description">
+                            A sophisticated semantic search system that enables natural language queries instead of keyword-based search, combining sparse retrieval (BM25) with dense vector embeddings (FAISS) and transformer-based reranking.
                         </p>
-                        <p>
-                            As the sole developer of this project, I engineered the entire system from data processing to deployment, optimizing for both accuracy and performance. The system achieves sub-100ms query times while maintaining high relevance scores across varied query types.
-                        </p>
-                    </div>
-                    <div class="modal-features">
-                        <h4>Technical Highlights</h4>
-                        <ul class="feature-list">
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Designed high-performance vector database schema for efficient similarity search operations
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Implemented hybrid search architecture combining BM25 keyword search with FAISS vector similarity
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Created scalable data transformation pipeline for processing product information into embeddings
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Applied natural language processing techniques to understand complex user queries
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Optimized query performance through execution plan analysis and index optimization
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Built cost-effective AI integration strategies reducing operational expenses by 75%
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-tech">
-                        <h4>Technologies Used</h4>
-                        <div class="modal-tech-list">
+                        <div class="project-highlights">
+                            <ul class="highlight-list">
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    83% improvement in search relevance over keyword-based systems
+                                </li>
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    Sub-100ms query times with millions of products
+                                </li>
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    75% reduction in operational costs with optimized AI integration
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">PyTorch</span>
                             <span class="tech-tag">FAISS</span>
-                            <span class="tech-tag">Transformers</span>
-                            <span class="tech-tag">DeepSeek-R1-Distill</span>
-                            <span class="tech-tag">REST APIs</span>
                             <span class="tech-tag">Docker</span>
                             <span class="tech-tag">AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kennethPakChungNg/vectorshop" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- SpaceX Launch Prediction Project -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title">SpaceX Launch Success Prediction</h2>
-                        <p class="modal-subtitle">
-                            Predictive modeling to determine Falcon 9 first stage landing success
-                        </p>
+                <div class="project-card stagger-in" data-category="data-science">
+                    <div class="project-category">Data Science</div>
+                    <div class="project-status completed">Completed</div>
+                    <div class="project-image-container">
+                        <img src="./images/spacesx.jpeg" alt="SpaceX Launch Prediction" class="project-image">
+                        <div class="project-overlay">
+                            <button class="view-details-btn" data-project="spacex">View Details</button>
+                        </div>
                     </div>
-                    <img src="./images/spacesx.jpeg" alt="SpaceX Launch Prediction" class="modal-image">
-                    <div class="modal-description">
-                        <p>
-                            This data science project predicts the success of SpaceX Falcon 9 first stage landings, which directly impacts launch costs since reusing the first stage significantly reduces expenses. By analyzing launch data from multiple sources, including the SpaceX API and web scraping, I created machine learning models that achieved 83% prediction accuracy.
+                    <div class="project-content">
+                        <h3 class="project-title">SpaceX Launch Success Prediction</h3>
+                        <p class="project-subtitle">ML models to predict Falcon 9 first stage landing success</p>
+                        <p class="project-description">
+                            This data science project predicts the success of SpaceX Falcon 9 first stage landings by analyzing launch data from multiple sources, demonstrating expertise in the complete data science workflow.
                         </p>
-                        <p>
-                            The project demonstrates my expertise in the complete data science workflow from data collection and cleaning to model training, evaluation, and visualization. I implemented multiple classification algorithms to identify the most effective approach for this prediction task.
-                        </p>
-                    </div>
-                    <div class="modal-features">
-                        <h4>Technical Highlights</h4>
-                        <ul class="feature-list">
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Applied logistic regression, SVM, and decision trees to predict landing success
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Performed comprehensive exploratory data analysis to identify key prediction variables
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Created statistical models to quantify relationships between launch parameters and outcomes
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Implemented RESTful API integration for real-time data collection
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Developed interactive data visualizations for technical and non-technical stakeholders
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-tech">
-                        <h4>Technologies Used</h4>
-                        <div class="modal-tech-list">
+                        <div class="project-highlights">
+                            <ul class="highlight-list">
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    83% prediction accuracy using optimized ML models
+                                </li>
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    Multi-source data integration from SpaceX API and web scraping
+                                </li>
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    Interactive dashboards for technical and non-technical stakeholders
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">NumPy</span>
                             <span class="tech-tag">scikit-learn</span>
                             <span class="tech-tag">Matplotlib</span>
-                            <span class="tech-tag">Seaborn</span>
                             <span class="tech-tag">API Integration</span>
-                            <span class="tech-tag">Web Scraping</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kennethPakChungNg/spacex-launch-prediction" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Blockchain Security Analysis Project -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title">AI Blockchain Security Analysis System</h2>
-                        <p class="modal-subtitle">
-                            Chainlink Hackathon 2024 project for detecting smart contract vulnerabilities
-                        </p>
+                <div class="project-card stagger-in" data-category="blockchain">
+                    <div class="project-category">Blockchain</div>
+                    <div class="project-status completed">Completed</div>
+                    <div class="project-image-container">
+                        <img src="images/BlockChainSecurityAnalysisSystem10.jpg" alt="Blockchain Security Analysis" class="project-image">
+                        <div class="project-overlay">
+                            <button class="view-details-btn" data-project="blockchain">View Details</button>
+                        </div>
                     </div>
-                    <img src="images/BlockChainSecurityAnalysisSystem10.jpg" alt="Blockchain Security Analysis" class="modal-image">
-                    <div class="modal-description">
-                        <p>
-                            The Generative AI Blockchain Security Analysis System leverages artificial intelligence to analyze blockchain transactions and smart contracts for security vulnerabilities and potential fraud. Developed for the Chainlink Hackathon 2024, this project implements a chain-agnostic approach supporting Ethereum, Polygon, and Avalanche networks.
+                    <div class="project-content">
+                        <h3 class="project-title">AI Blockchain Security Analysis System</h3>
+                        <p class="project-subtitle">Chainlink Hackathon 2024 chain-agnostic security platform</p>
+                        <p class="project-description">
+                            This system leverages AI to analyze blockchain transactions and smart contracts for security vulnerabilities and potential fraud, supporting Ethereum, Polygon, and Avalanche networks.
                         </p>
-                        <p>
-                            As a key contributor to this project, I architected the backend services and implemented the AI integration components. The system uses Chainlink Functions for secure on-chain data retrieval combined with OpenAI's language models for security analysis, storing reports on IPFS for decentralized access.
-                        </p>
-                    </div>
-                    <div class="modal-features">
-                        <h4>Technical Highlights</h4>
-                        <ul class="feature-list">
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Architected backend services with microservice architecture for AI-powered security analysis
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Implemented containerized deployment using Docker for consistent cross-environment performance
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Designed high-performance database schema optimized for blockchain transaction analysis
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Integrated OpenAI API for smart contract vulnerability detection with severity categorization
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Built IPFS integration for decentralized storage of analysis reports
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Created multi-chain support for Ethereum, Polygon, and Avalanche networks
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-tech">
-                        <h4>Technologies Used</h4>
-                        <div class="modal-tech-list">
-                            <span class="tech-tag">Node.js & Express</span>
+                        <div class="project-highlights">
+                            <ul class="highlight-list">
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    Multi-chain support for Ethereum, Polygon, and Avalanche networks
+                                </li>
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    Integrated Chainlink Functions for secure on-chain data retrieval
+                                </li>
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    IPFS integration for decentralized storage of analysis reports
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">TypeScript</span>
                             <span class="tech-tag">Angular</span>
-                            <span class="tech-tag">Chainlink Functions</span>
+                            <span class="tech-tag">Chainlink</span>
                             <span class="tech-tag">OpenAI API</span>
-                            <span class="tech-tag">IPFS via QuickNode</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Multiple Blockchains</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kennethPakChungNg/blockchain-security-analysis" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- AI Education System Project -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title">AI Education System</h2>
-                        <p class="modal-subtitle">
-                            Theta Hackathon 2024 project creating a personalized blockchain learning platform
-                        </p>
+                <div class="project-card stagger-in" data-category="ai web">
+                    <div class="project-category">AI & Web</div>
+                    <div class="project-status completed">Completed</div>
+                    <div class="project-image-container">
+                        <img src="./images/AIEducationSystem1.png" alt="AI Education System" class="project-image">
+                        <div class="project-overlay">
+                            <button class="view-details-btn" data-project="education">View Details</button>
+                        </div>
                     </div>
-                    <img src="./images/AIEducationSystem1.png" alt="AI Education System" class="modal-image">
-                    <div class="modal-description">
-                        <p>
-                            The AI Education System is a platform that leverages generative AI to create personalized blockchain and Web3 learning experiences. Built for the Theta Network 2024 Hackathon, this system demonstrates how AI can revolutionize education by adapting to each learner's background, interests, and learning style.
+                    <div class="project-content">
+                        <h3 class="project-title">AI Education System</h3>
+                        <p class="project-subtitle">Theta Hackathon 2024 personalized learning platform</p>
+                        <p class="project-description">
+                            This platform leverages generative AI to create personalized blockchain and Web3 learning experiences, adapting to each learner's background, interests, and learning style.
                         </p>
-                        <p>
-                            I led the development of this platform, designing both the frontend and backend architecture. The system uses language models to generate customized course content, answer student questions, create quizzes, and provide explanations—all tailored to individual learning profiles and integrated with Web3 wallet authentication.
-                        </p>
-                    </div>
-                    <div class="modal-features">
-                        <h4>Technical Highlights</h4>
-                        <ul class="feature-list">
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Designed and implemented machine learning algorithms for content recommendation
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Built MongoDB database schema for storing user profiles and learning content
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Applied natural language processing to generate personalized educational content
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Implemented Web3 wallet authentication for blockchain-native user experience
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Created dynamic course generation system adapting to each user's background
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle"></i>
-                                Integrated with Theta EdgeCloud for AI model inference and image generation
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-tech">
-                        <h4>Technologies Used</h4>
-                        <div class="modal-tech-list">
+                        <div class="project-highlights">
+                            <ul class="highlight-list">
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    Personalized learning with AI-generated content and quizzes
+                                </li>
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    Web3 wallet authentication for blockchain-native experience
+                                </li>
+                                <li class="highlight-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    Integration with Theta EdgeCloud for AI model inference
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
                             <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">Node.js/Express</span>
+                            <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Material UI</span>
-                            <span class="tech-tag">OpenAI (GPT-4)</span>
-                            <span class="tech-tag">Theta EdgeCloud</span>
+                            <span class="tech-tag">GPT-4</span>
                             <span class="tech-tag">Web3.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kennethPakChungNg/AI-Education-System" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Placeholder for future projects -->
-                <div class="project-card stagger-in">
-                    <div class="project-content" style="justify-content: center; align-items: center; text-align: center; height: 100%;">
-                        <i class="fas fa-plus-circle" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1.5rem;"></i>
+                <div class="project-card stagger-in" data-category="all">
+                    <div class="project-image-container" style="display: flex; justify-content: center; align-items: center; background: var(--card-bg);">
+                        <i class="fas fa-plus-circle" style="font-size: 5rem; color: var(--secondary); opacity: 0.5;"></i>
+                    </div>
+                    <div class="project-content" style="justify-content: center; align-items: center; text-align: center;">
                         <h3 class="project-title">More Projects Coming Soon</h3>
-                        <p style="color: var(--gray);">Check back later for more exciting projects!</p>
+                        <p class="project-description">Check back later for more exciting projects!</p>
+                        <a href="https://github.com/kennethPakChungNg" target="_blank" class="project-btn" style="margin-top: 1.5rem;">
+                            <i class="fab fa-github"></i> View All GitHub Projects
+                        </a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="modal-btn-container">
+                <a href="https://github.com/kennethPakChungNg" target="_blank" class="see-all-btn">
+                    <i class="fas fa-code-branch"></i> See All Projects
+                </a>
             </div>
         </div>
     </section>
@@ -1808,61 +2002,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">What People Say</h2>
-            <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
-                Feedback from colleagues and clients who I've had the pleasure to work with.
-            </p>
-            <div class="testimonials">
-                <div class="testimonial-slider">
-                    <div class="testimonial-card scale-in">
-                        <div class="testimonial-content">
-                            <p>
-                                "Kenneth is an exceptional developer with strong technical skills and the ability to understand business requirements. His AI implementations have significantly improved our search functionality."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
-                            <div class="author-info">
-                                <h4>Dr. Sarah Chen</h4>
-                                <p class="author-role">Project Lead, HKUMed</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card scale-in">
-                        <div class="testimonial-content">
-                            <p>
-                                "Working with Kenneth on the blockchain security project was a pleasure. His technical knowledge and innovative approach to problem-solving made a complex project manageable and successful."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
-                            <div class="author-info">
-                                <h4>James Wilson</h4>
-                                <p class="author-role">Senior Developer, Chainlink</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card scale-in">
-                        <div class="testimonial-content">
-                            <p>
-                                "Kenneth's data science expertise and attention to detail made our predictive model both accurate and practical. His ability to explain complex concepts clearly is invaluable."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
-                            <div class="author-info">
-                                <h4>Maria Rodriguez</h4>
-                                <p class="author-role">Data Scientist, TechFirm</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
@@ -2300,12 +2439,49 @@
             el.style.animationDelay = `${index * 0.2}s`;
         });
 
+        // Project filtering functionality
+        const projectTabs = document.querySelectorAll('.project-tab');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        // Initialize Isotope-like filtering
+        function filterProjects(category) {
+            projectCards.forEach(card => {
+                const cardCategories = card.dataset.category ? card.dataset.category.split(' ') : [];
+                
+                if (category === 'all' || cardCategories.includes(category)) {
+                    card.style.display = '';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        projectTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                projectTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Filter projects
+                const filterValue = tab.getAttribute('data-filter');
+                filterProjects(filterValue);
+            });
+        });
+
         // Project modals
         const modals = document.querySelectorAll('.modal');
-        const modalButtons = document.querySelectorAll('[data-project]');
+        const projectDetailBtns = document.querySelectorAll('.view-details-btn');
         const modalCloseButtons = document.querySelectorAll('.modal-close');
 
-        modalButtons.forEach(button => {
+        projectDetailBtns.forEach(button => {
             button.addEventListener('click', () => {
                 const projectId = button.getAttribute('data-project');
                 const modal = document.getElementById(`${projectId}Modal`);
@@ -2381,7 +2557,12 @@
             
             // Create project content
             projectCard.innerHTML = `
-                <img src="${image}" alt="${title}" class="project-image">
+                <div class="project-image-container">
+                    <img src="${image}" alt="${title}" class="project-image">
+                    <div class="project-overlay">
+                        <button class="view-details-btn" data-project="new-project">View Details</button>
+                    </div>
+                </div>
                 <div class="project-content">
                     <h3 class="project-title">${title}</h3>
                     <p class="project-description">${description}</p>
@@ -2389,14 +2570,11 @@
                         ${technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link" data-project="new-project">
-                            <i class="fas fa-info-circle"></i>
-                        </a>
                         <a href="${github}" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i>
+                            <i class="fab fa-github"></i> GitHub
                         </a>
                         <a href="${demo}" target="_blank" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
+                            <i class="fas fa-external-link-alt"></i> Demo
                         </a>
                     </div>
                 </div>
@@ -2410,7 +2588,7 @@
             observer.observe(projectCard);
             
             // Add modal functionality
-            const modalButton = projectCard.querySelector('[data-project]');
+            const modalButton = projectCard.querySelector('.view-details-btn');
             modalButton.addEventListener('click', () => {
                 // Create and open a new modal (simplified for this example)
                 alert(`Modal for ${title} would open here!`);

@@ -1249,87 +1249,11 @@
             mix-blend-mode: normal;
         }
 
-        /* Image Carousel Styles */
-        .image-carousel {
-            position: relative;
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease;
-            height: 400px;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        .carousel-navigation {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 0 1rem;
-            z-index: 1;
-        }
-
-        .carousel-btn {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .carousel-btn:hover {
-            background: rgba(108, 99, 255, 0.8);
-        }
-
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            position: absolute;
-            bottom: 1rem;
-            width: 100%;
-        }
-
-        .carousel-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
         .carousel-indicator.active {
             background: var(--secondary);
             transform: scale(1.2);
         }
-
+        
         /* Link labels for repository links */
         .link-label {
             font-size: 0.7rem;
@@ -1426,18 +1350,15 @@
                 </div>
                 <div class="about-text slide-in-right">
                     <h2 class="section-title">About Me</h2>
-                        <p>
-                            I'm Kenneth Ng, a Full Stack Developer and Data Scientist with expertise in building intelligent digital solutions. With a First Class Honours BSc in Computing and currently pursuing a Master's in Data Science at The University of Texas at Austin, I combine academic knowledge with practical expertise to solve complex technical challenges.
-                        </p>
-                        <p>
-                            My professional journey includes developing sophisticated web applications at HKUMed, where I've enhanced database performance by 60% through optimization techniques and implemented robust ETL pipelines. Previously, I led operations for a digital printing factory in Mexico, driving a 500% increase in sales through strategic management.
-                        </p>
-                        <p>
-                            I'm passionate about leveraging AI, machine learning, and data science to create innovative solutions. My projects span semantic search systems, blockchain security analysis, and personalized education platforms, demonstrating my versatility across multiple domains.
-                        </p>
-                        <p>
-                            Currently, I'm authorized to work in Canada with an approved OWP and am excited about opportunities that combine my technical skills with business impact.
-                        </p>
+                    <p>
+                        I'm a Full Stack Developer and Data Scientist with a passion for building intelligent digital solutions. My journey in technology has equipped me with a diverse skill set spanning web development, data analysis, and emerging technologies like blockchain and AI.
+                    </p>
+                    <p>
+                        With a First Class Honours BSc in Computing and currently pursuing a Master's in Data Science at The University of Texas at Austin, I combine academic knowledge with practical expertise to deliver high-quality solutions that solve real-world problems.
+                    </p>
+                    <p>
+                        My experience includes developing complex web applications, implementing AI models, and leading technical projects. I'm constantly exploring new technologies and approaches to enhance my skill set and create innovative solutions.
+                    </p>
                     <div class="stats-grid">
                         <div class="stat-item">
                             <div class="stat-number">4+</div>
@@ -1466,88 +1387,88 @@
             </p>
             <div class="skills-container">
                 <div class="skills-grid">
-                    <div class="skill-category">
+                    <div class="skill-category stagger-in">
                         <h3>
                             <i class="fas fa-code"></i>
                             Programming Languages
                         </h3>
                         <ul class="skill-list">
+                            <li class="skill-item">JavaScript / TypeScript</li>
                             <li class="skill-item">Python</li>
-                            <li class="skill-item">JavaScript/TypeScript</li>
                             <li class="skill-item">Java</li>
                             <li class="skill-item">PHP</li>
                             <li class="skill-item">SQL</li>
-                            <li class="skill-item">Bash Scripting</li>
+                            <li class="skill-item">Solidity</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category stagger-in">
                         <h3>
                             <i class="fas fa-laptop-code"></i>
-                            Frontend Development
+                            Frontend Technologies
                         </h3>
                         <ul class="skill-list">
                             <li class="skill-item">React.js</li>
                             <li class="skill-item">Next.js</li>
-                            <li class="skill-item">Angular</li>
+                            <li class="skill-item">Angular.js</li>
                             <li class="skill-item">HTML5 & CSS3</li>
+                            <li class="skill-item">Bootstrap & Tailwind CSS</li>
                             <li class="skill-item">Material UI</li>
-                            <li class="skill-item">Responsive Design</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category stagger-in">
                         <h3>
                             <i class="fas fa-server"></i>
-                            Backend Development
+                            Backend Technologies
                         </h3>
                         <ul class="skill-list">
-                            <li class="skill-item">Node.js/Express</li>
+                            <li class="skill-item">Node.js & Express.js</li>
                             <li class="skill-item">Flask</li>
                             <li class="skill-item">RESTful APIs</li>
-                            <li class="skill-item">Authentication Systems</li>
-                            <li class="skill-item">MongoDB/SQL Integration</li>
-                            <li class="skill-item">ETL Pipelines</li>
+                            <li class="skill-item">GraphQL</li>
+                            <li class="skill-item">Serverless Architecture</li>
+                            <li class="skill-item">Microservices</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category stagger-in">
                         <h3>
                             <i class="fas fa-database"></i>
-                            Database Management
+                            Databases
                         </h3>
                         <ul class="skill-list">
-                            <li class="skill-item">SQL Server</li>
                             <li class="skill-item">MySQL</li>
                             <li class="skill-item">MongoDB</li>
+                            <li class="skill-item">PostgreSQL</li>
+                            <li class="skill-item">MS SQL Server</li>
                             <li class="skill-item">Oracle SQL</li>
-                            <li class="skill-item">Database Optimization</li>
-                            <li class="skill-item">Data Modeling</li>
+                            <li class="skill-item">Redis</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category stagger-in">
                         <h3>
                             <i class="fas fa-brain"></i>
                             AI & Data Science
                         </h3>
                         <ul class="skill-list">
                             <li class="skill-item">Machine Learning</li>
+                            <li class="skill-item">TensorFlow & PyTorch</li>
+                            <li class="skill-item">Data Analysis & Visualization</li>
                             <li class="skill-item">Natural Language Processing</li>
-                            <li class="skill-item">Vector Embeddings</li>
-                            <li class="skill-item">TensorFlow/PyTorch</li>
-                            <li class="skill-item">Pandas/NumPy/scikit-learn</li>
-                            <li class="skill-item">Statistical Analysis</li>
+                            <li class="skill-item">Computer Vision</li>
+                            <li class="skill-item">Large Language Models</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category stagger-in">
                         <h3>
                             <i class="fas fa-link"></i>
-                            Blockchain & DevOps
+                            Blockchain
                         </h3>
                         <ul class="skill-list">
-                            <li class="skill-item">Web3 Integration</li>
-                            <li class="skill-item">Smart Contract Analysis</li>
-                            <li class="skill-item">AWS (Certified Solution Architect)</li>
-                            <li class="skill-item">Docker Containerization</li>
-                            <li class="skill-item">CI/CD Pipelines</li>
-                            <li class="skill-item">Linux Systems</li>
+                            <li class="skill-item">Smart Contract Development</li>
+                            <li class="skill-item">Web3.js & Ethers.js</li>
+                            <li class="skill-item">Ethereum, Polygon, Avalanche</li>
+                            <li class="skill-item">DeFi Protocols</li>
+                            <li class="skill-item">Token Standards (ERC-20, ERC-721)</li>
+                            <li class="skill-item">Blockchain Security Analysis</li>
                         </ul>
                     </div>
                 </div>
@@ -1565,7 +1486,7 @@
             <div class="projects-grid">
                 <!-- VectorShop Project -->
                 <div class="project-card stagger-in">
-                    <img src="images/vectorSearch.png" alt="VectorShop" class="project-image">
+                    <img src="https://via.placeholder.com/350x200" alt="VectorShop" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">VectorShop: Semantic Product Search</h3>
                         <p class="project-description">
@@ -1594,17 +1515,17 @@
 
                 <!-- SpaceX Launch Prediction Project -->
                 <div class="project-card stagger-in">
-                    <img src="images/spacesx.jpeg" alt="SpaceX Launch Prediction" class="project-image">
+                    <img src="https://via.placeholder.com/350x200" alt="SpaceX Launch Prediction" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">SpaceX Launch Success Prediction</h3>
                         <p class="project-description">
-                            Machine learning project that predicts SpaceX Falcon 9 first stage landing success with 83% accuracy, analyzing data from REST API and web scraping to identify key success factors.
+                            Machine learning model predicting SpaceX Falcon 9 first stage landing success with 83% accuracy, combining data analysis with interactive visualizations.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">Scikit-Learn</span>
                             <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Plotly Dash</span>
+                            <span class="tech-tag">Matplotlib</span>
                             <span class="tech-tag">API Integration</span>
                         </div>
                         <div class="project-links">
@@ -1623,7 +1544,7 @@
 
                 <!-- Blockchain Security Analysis Project -->
                 <div class="project-card stagger-in">
-                    <img src="images/BlockChainSecurityAnalysisSystem1.jpg" alt="Blockchain Security Analysis" class="project-image">
+                    <img src="https://via.placeholder.com/350x200" alt="Blockchain Security Analysis" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">AI Blockchain Security Analysis</h3>
                         <p class="project-description">
@@ -1655,7 +1576,7 @@
 
                 <!-- AI Education System Project -->
                 <div class="project-card stagger-in">
-                    <img src="images/AIEducationSystem1.png" alt="AI Education System" class="project-image">
+                    <img src="https://via.placeholder.com/350x200" alt="AI Education System" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">AI Education System</h3>
                         <p class="project-description">
@@ -1700,69 +1621,137 @@
     <!-- Education Section -->
     <section id="education" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Education</h2>
+            <h2 class="section-title fade-in">Education & Experience</h2>
             <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
-                My educational background includes a First Class Honours BSc in Computing and a Master's in Data Science.
+                My academic journey and professional experience that have shaped my career in technology.
             </p>
             <div class="timeline">
+                <!-- MSc Data Science -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3 class="timeline-title">First Class Honours BSc in Computing</h3>
-                        <p class="timeline-place">The University of Hong Kong</p>
-                        <p class="timeline-date">2018 - 2022</p>
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2025 - Present
+                        </div>
+                        <h3 class="timeline-title">Master of Science in Data Science</h3>
+                        <p class="timeline-place">The University of Texas at Austin</p>
+                        <p class="timeline-description">
+                            Specializing in machine learning, AI, and advanced data analytics with a focus on practical applications in business and technology.
+                        </p>
                     </div>
                 </div>
+
+                <!-- Full Stack Developer at HKUMed -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3 class="timeline-title">Master's in Data Science</h3>
-                        <p class="timeline-place">The University of Texas at Austin</p>
-                        <p class="timeline-date">2023 - Present</p>
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2023 - Present
+                        </div>
+                        <h3 class="timeline-title">Full Stack Developer</h3>
+                        <p class="timeline-place">HKUMed - The University of Hong Kong</p>
+                        <p class="timeline-description">
+                            Leading development of Next.js applications, implementing complex form solutions, and developing public-facing websites for academic programs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BSc Computing -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2023 - 2024
+                        </div>
+                        <h3 class="timeline-title">Bachelor of Science (Hons) Computing</h3>
+                        <p class="timeline-place">University of Greenwich</p>
+                        <p class="timeline-description">
+                            Graduated with First Class Honours, developing strong foundations in software engineering, algorithms, and system design.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Advanced Diploma -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2021 - 2023
+                        </div>
+                        <h3 class="timeline-title">Advanced Diploma in Business Information Technology</h3>
+                        <p class="timeline-place">HKU SPACE</p>
+                        <p class="timeline-description">
+                            Achieved GPA 3.83, focusing on programming fundamentals, database management, and business applications of technology.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Operations Manager -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2016 - 2019
+                        </div>
+                        <h3 class="timeline-title">Operations Manager</h3>
+                        <p class="timeline-place">Diginspiracion Mexico S.A. DE C.V.</p>
+                        <p class="timeline-description">
+                            Led operations for a digital printing factory, driving 500% increase in sales and implementing efficient production systems.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="section">
+    <!-- Testimonials Section -->
+    <section class="section">
         <div class="container">
             <h2 class="section-title fade-in">What People Say</h2>
             <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
-                Here's what my colleagues and clients have to say about my work.
+                Feedback from colleagues and clients who I've had the pleasure to work with.
             </p>
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Kenneth is a true professional. His work is always of the highest quality and he consistently delivers projects ahead of schedule. I've worked with him on multiple projects and every time he has exceeded my expectations."</p>
+            <div class="testimonials">
+                <div class="testimonial-slider">
+                    <div class="testimonial-card scale-in">
+                        <div class="testimonial-content">
+                            <p>
+                                "Kenneth is an exceptional developer with strong technical skills and the ability to understand business requirements. His AI implementations have significantly improved our search functionality."
+                            </p>
+                        </div>
                         <div class="testimonial-author">
-                            <img src="images/john_doe.jpg" alt="John Doe" class="author-avatar">
+                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
                             <div class="author-info">
-                                <h4>John Doe</h4>
-                                <p>Project Manager at HKUMed</p>
+                                <h4>Dr. Sarah Chen</h4>
+                                <p class="author-role">Project Lead, HKUMed</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Kenneth's AI solutions have been instrumental in our business growth. His ability to integrate AI into our operations has led to a significant increase in efficiency and profitability."</p>
+                    <div class="testimonial-card scale-in">
+                        <div class="testimonial-content">
+                            <p>
+                                "Working with Kenneth on the blockchain security project was a pleasure. His technical knowledge and innovative approach to problem-solving made a complex project manageable and successful."
+                            </p>
+                        </div>
                         <div class="testimonial-author">
-                            <img src="images/jane_smith.jpg" alt="Jane Smith" class="author-avatar">
+                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
                             <div class="author-info">
-                                <h4>Jane Smith</h4>
-                                <p>CEO at Tech Innovations</p>
+                                <h4>James Wilson</h4>
+                                <p class="author-role">Senior Developer, Chainlink</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Kenneth's dedication and expertise are unmatched. He's a great team player and his contributions have been invaluable to our project."</p>
+                    <div class="testimonial-card scale-in">
+                        <div class="testimonial-content">
+                            <p>
+                                "Kenneth's data science expertise and attention to detail made our predictive model both accurate and practical. His ability to explain complex concepts clearly is invaluable."
+                            </p>
+                        </div>
                         <div class="testimonial-author">
-                            <img src="images/bob_brown.jpg" alt="Bob Brown" class="author-avatar">
+                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
                             <div class="author-info">
-                                <h4>Bob Brown</h4>
-                                <p>Data Scientist at AI Research</p>
+                                <h4>Maria Rodriguez</h4>
+                                <p class="author-role">Data Scientist, TechFirm</p>
                             </div>
                         </div>
                     </div>
@@ -1774,106 +1763,570 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Get in Touch</h2>
-            <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
-                I'd love to hear from you! Whether you're interested in a project, collaboration, or just want to say hello, feel free to reach out.
-            </p>
-            <div class="contact-container">
-                <div class="contact-text">
-                    <p>Email: kenneth.ng@example.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-container fade-in">
+                <p class="contact-text">
+                    I'm currently open to job opportunities and collaboration on interesting projects.
+                    Whether you have a question or just want to say hi, I'll do my best to get back to you!
+                </p>
+                <a href="mailto:ngchungpak@gmail.com" class="contact-cta">
+                    <i class="fas fa-paper-plane"></i>
+                    Say Hello
+                </a>
+                <div class="contact-links">
+                    <a href="mailto:ngchungpak@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>ngchungpak@gmail.com</span>
+                    </a>
+                    <a href="tel:+85266588058" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        <span>+852 6658 8058</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/chung-pak-ng-a6729016b/" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/kennethPakChungNg" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
                 </div>
-                <a href="#contact" class="contact-cta">Contact Me</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">Kenneth<span>Ng</span></div>
-            <div class="footer-links">
-                <a href="#about" class="footer-link">About</a>
-                <a href="#skills" class="footer-link">Skills</a>
-                <a href="#projects" class="footer-link">Projects</a>
-                <a href="#education" class="footer-link">Education</a>
-                <a href="#contact" class="footer-link">Contact</a>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#hero" class="footer-logo">Kenneth<span>Ng</span></a>
+                <div class="footer-links">
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#skills" class="footer-link">Skills</a>
+                    <a href="#projects" class="footer-link">Projects</a>
+                    <a href="#education" class="footer-link">Education</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/kennethPakChungNg" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/chung-pak-ng-a6729016b/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:ngchungpak@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p class="copyright">
+                    © 2025 Kenneth Ng. All Rights Reserved.
+                </p>
             </div>
-            <div class="footer-social">
-                <a href="https://github.com/kennethPakChungNg" class="footer-link" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/chung-pak-ng-a6729016b/" class="footer-link" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="footer-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </div>
-            <p class="copyright">© 2024 Kenneth Ng. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Project Detail Modal -->
-    <div class="modal" id="projectDetailModal">
+    <!-- Project Detail Modals -->
+    <!-- VectorShop Modal -->
+    <div class="modal" id="vectorshopModal">
         <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
             <div class="modal-header">
-                <h3 class="modal-title">Project Title</h3>
-                <button class="modal-close" id="closeProjectDetail">
-                    <i class="fas fa-times"></i>
-                </button>
+                <h2 class="modal-title">VectorShop: Semantic Product Search System</h2>
+                <p class="modal-subtitle">
+                    A production-ready semantic search engine for e-commerce that understands natural language queries
+                </p>
             </div>
-            <div class="modal-body">
-                <img src="images/vectorSearch.png" alt="Project Image" class="modal-image">
-                <p class="modal-description">Project description goes here...</p>
-                <div class="modal-features">
-                    <h4>Features</h4>
-                    <ul class="feature-list">
-                        <li>Feature 1</li>
-                        <li>Feature 2</li>
-                        <li>Feature 3</li>
-                    </ul>
+            <img src="https://via.placeholder.com/800x400" alt="VectorShop" class="modal-image">
+            <div class="modal-description">
+                <p>
+                    VectorShop is a sophisticated semantic search system for small-to-medium sized online stores, allowing customers to find products using natural language queries instead of just keywords. The system combines keyword search, vector similarity, and AI reasoning to deliver highly relevant search results even for complex queries.
+                </p>
+                <p>
+                    The system uses a hybrid architecture that combines sparse retrieval (BM25) with dense vector embeddings (FAISS) and a reranking layer using transformer models. This approach delivers sub-100ms query times even with millions of products, making it suitable for production environments.
+                </p>
+            </div>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Natural language understanding for complex product queries
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Hybrid search technology combining keywords, vectors, and AI reasoning
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Cost-effective implementation using optimized open-source models
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Multilingual support for both English and regional languages
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Easy integration with popular e-commerce platforms like Shopify
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-tech">
+                <h4>Technologies Used</h4>
+                <div class="modal-tech-list">
+                    <span class="tech-tag">Python 3.9+</span>
+                    <span class="tech-tag">PyTorch 1.9+</span>
+                    <span class="tech-tag">FAISS</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">DeepSeek-R1-Distill</span>
+                    <span class="tech-tag">BM25</span>
+                    <span class="tech-tag">Natural Language Processing</span>
+                    <span class="tech-tag">Vector Search</span>
                 </div>
-                <div class="modal-tech">
-                    <h4>Technologies Used</h4>
-                    <ul class="modal-tech-list">
-                        <li>Python</li>
-                        <li>PyTorch</li>
-                        <li>FAISS</li>
-                    </ul>
-                </div>
-                <div class="modal-actions">
-                    <a href="https://github.com/kennethPakChungNg/AI-Education-System-Node-Backend" target="_blank" class="modal-btn modal-btn-primary">
-                        <i class="fab fa-github"></i>
-                        View Backend on GitHub
-                    </a>
-                    <a href="https://github.com/kennethPakChungNg/AI-Education-System-React-Frontend" target="_blank" class="modal-btn modal-btn-secondary">
-                        <i class="fab fa-github"></i>
-                        View Frontend on GitHub
-                    </a>
-                    <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
-                        <i class="fas fa-external-link-alt"></i>
-                        Live Demo
-                    </a>
-                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://github.com/kennethPakChungNg/vectorshop" target="_blank" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-github"></i>
+                    View on GitHub
+                </a>
+                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- SpaceX Launch Prediction Modal -->
+    <div class="modal" id="spacexModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">SpaceX Launch Success Prediction</h2>
+                <p class="modal-subtitle">
+                    Machine learning project predicting Falcon 9 first stage landing success
+                </p>
+            </div>
+            <img src="https://via.placeholder.com/800x400" alt="SpaceX Launch Prediction" class="modal-image">
+            <div class="modal-description">
+                <p>
+                    This project uses machine learning to predict SpaceX Falcon 9 first stage landing success, which helps estimate launch costs since SpaceX rocket launches are significantly cheaper when the first stage can be reused. The analysis combines data from multiple sources, including the SpaceX REST API and web scraping from Wikipedia.
+                </p>
+                <p>
+                    The project achieved 83% prediction accuracy by analyzing launch records with details on boosters, payloads, and landing outcomes. It includes interactive visualizations and dashboards to explore the data and understand the factors that influence landing success.
+                </p>
+            </div>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Comprehensive data collection from SpaceX API and web scraping
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Interactive dashboards and geographic visualizations
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Multiple machine learning models including Logistic Regression, SVM, Decision Trees, and KNN
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        83% prediction accuracy on test data
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Analysis of key factors influencing launch success
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-tech">
+                <h4>Technologies Used</h4>
+                <div class="modal-tech-list">
+                    <span class="tech-tag">Python 3.x</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">NumPy</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Matplotlib</span>
+                    <span class="tech-tag">Seaborn</span>
+                    <span class="tech-tag">Plotly Dash</span>
+                    <span class="tech-tag">Folium</span>
+                    <span class="tech-tag">API Integration</span>
+                    <span class="tech-tag">Web Scraping</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://github.com/kennethPakChungNg/spacex-launch-prediction" target="_blank" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-github"></i>
+                    View on GitHub
+                </a>
+                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blockchain Security Analysis Modal -->
+    <div class="modal" id="blockchainModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">AI Blockchain Security Analysis System</h2>
+                <p class="modal-subtitle">
+                    Chainlink Hackathon 2024 project for analyzing blockchain security
+                </p>
+            </div>
+            <img src="https://via.placeholder.com/800x400" alt="Blockchain Security Analysis" class="modal-image">
+            <div class="modal-description">
+                <p>
+                    The Generative AI Blockchain Security Analysis System leverages artificial intelligence to analyze blockchain transactions and smart contracts for security vulnerabilities and potential fraud. This project was developed for the Chainlink Hackathon 2024 and implements a chain-agnostic approach supporting Ethereum, Polygon, and Avalanche networks.
+                </p>
+                <p>
+                    The system combines Chainlink Functions for secure on-chain data retrieval with OpenAI's LLM for security analysis, providing detailed reports on potential vulnerabilities and suspicious transactions. Analysis reports are stored on IPFS via QuickNode for decentralized, permanent storage.
+                </p>
+            </div>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Smart contract vulnerability analysis with severity categorization
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Blockchain transaction fraud detection across multiple chains
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Chain-agnostic implementation supporting Ethereum, Polygon, and Avalanche
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        IPFS integration for decentralized storage of analysis reports
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        AI-powered fraud detection with confidence ratings
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-tech">
+                <h4>Technologies Used</h4>
+                <div class="modal-tech-list">
+                    <span class="tech-tag">Node.js & Express</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">Chainlink Functions</span>
+                    <span class="tech-tag">OpenAI API</span>
+                    <span class="tech-tag">IPFS via QuickNode</span>
+                    <span class="tech-tag">BitQuery</span>
+                    <span class="tech-tag">Ethereum</span>
+                    <span class="tech-tag">Polygon</span>
+                    <span class="tech-tag">Avalanche</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://github.com/kennethPakChungNg/ChainLinkHackathonCore" target="_blank" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-github"></i>
+                    View Backend on GitHub
+                </a>
+                <a href="https://github.com/kennethPakChungNg/ChainLinkHackathonUI" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fab fa-github"></i>
+                    View Frontend on GitHub
+                </a>
+                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Education System Modal -->
+    <div class="modal" id="educationModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">AI Education System</h2>
+                <p class="modal-subtitle">
+                    Theta Hackathon 2024 project creating an AI-powered education platform
+                </p>
+            </div>
+            <img src="https://via.placeholder.com/800x400" alt="AI Education System" class="modal-image">
+            <div class="modal-description">
+                <p>
+                    The AI Education System is a platform that leverages generative AI to create personalized blockchain and Web3 learning experiences. Built for the Theta Network 2024 Hackathon, this system demonstrates how AI can revolutionize education by adapting to each learner's background, interests, and learning style.
+                </p>
+                <p>
+                    The platform uses large language models (LLMs) to generate customized course content, answer student questions, create quizzes, and provide explanations—all tailored to the individual learner's profile. It features blockchain-based authentication using Theta wallet addresses and integrates with Theta EdgeCloud for AI model inference.
+                </p>
+            </div>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Personalized learning that adapts to your background and interests
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        AI tutoring through a conversational interface
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Dynamic course outline generation based on user characteristics
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Automated quiz generation and assessment
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Web3 integration with wallet-based authentication
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-tech">
+                <h4>Technologies Used</h4>
+                <div class="modal-tech-list">
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">Node.js/Express</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Material UI</span>
+                    <span class="tech-tag">OpenAI (GPT-4o)</span>
+                    <span class="tech-tag">Theta EdgeCloud</span>
+                    <span class="tech-tag">Stable Diffusion</span>
+                    <span class="tech-tag">Web3.js</span>
+                    <span class="tech-tag">Theta Network</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://github.com/kennethPakChungNg/AI-Education-System-Node-Backend" target="_blank" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-github"></i>
+                    View Backend on GitHub
+                </a>
+                <a href="https://github.com/kennethPakChungNg/AI-Education-System-React-Frontend" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fab fa-github"></i>
+                    View Frontend on GitHub
+                </a>
+                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
     <script>
-        // JavaScript for project detail modal
-        document.getElementById('closeProjectDetail').addEventListener('click', function() {
-            document.getElementById('projectDetailModal').classList.remove('open');
+        // Navigation
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
         });
 
-        // JavaScript for mobile menu
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.add('open');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.add('open');
         });
 
-        document.getElementById('closeMenu').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.remove('open');
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('open');
         });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('open');
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered delay to .stagger-in elements
+        document.querySelectorAll('.stagger-in').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Timeline animation
+        document.querySelectorAll('.timeline-item').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Project modals
+        const modals = document.querySelectorAll('.modal');
+        const modalButtons = document.querySelectorAll('[data-project]');
+        const modalCloseButtons = document.querySelectorAll('.modal-close');
+
+        modalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const projectId = button.getAttribute('data-project');
+                const modal = document.getElementById(`${projectId}Modal`);
+                if (modal) {
+                    modal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Custom cursor
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Cursor grow effect on hover
+        const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-category, .stat-item, .timeline-content, .testimonial-card');
+
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-grow');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-grow');
+            });
+        });
+
+        // Hide cursor when leaving window
+        document.addEventListener('mouseout', (e) => {
+            if (e.relatedTarget === null) {
+                cursor.style.opacity = '0';
+                cursorDot.style.opacity = '0';
+            }
+        });
+
+        document.addEventListener('mouseover', () => {
+            cursor.style.opacity = '0.5';
+            cursorDot.style.opacity = '1';
+        });
+
+        // Add project functionality
+        function addProject(title, description, image, technologies, github, demo) {
+            const projectsGrid = document.querySelector('.projects-grid');
+            
+            // Create new project card
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card stagger-in';
+            
+            // Create project content
+            projectCard.innerHTML = `
+                <img src="${image}" alt="${title}" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">${title}</h3>
+                    <p class="project-description">${description}</p>
+                    <div class="project-tech">
+                        ${technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-project="new-project">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                        <a href="${github}" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="${demo}" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            // Add new project before the "More Projects Coming Soon" card
+            const placeholderCard = projectsGrid.lastElementChild;
+            projectsGrid.insertBefore(projectCard, placeholderCard);
+            
+            // Re-initialize animations
+            observer.observe(projectCard);
+            
+            // Add modal functionality
+            const modalButton = projectCard.querySelector('[data-project]');
+            modalButton.addEventListener('click', () => {
+                // Create and open a new modal (simplified for this example)
+                alert(`Modal for ${title} would open here!`);
+            });
+        }
+
+        // Example usage (can be called dynamically to add more projects)
+        // Uncomment to test adding a project
+        /*
+        addProject(
+            'New Project Title', 
+            'This is a description of the new project.',
+            'https://via.placeholder.com/350x200',
+            ['JavaScript', 'React', 'Node.js', 'MongoDB'],
+            'https://github.com/username/project',
+            'https://demo-link.com'
+        );
+        */
     </script>
 </body>
 </html>

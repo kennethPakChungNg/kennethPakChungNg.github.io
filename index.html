@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenneth Ng | Full Stack Developer & Data Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2D3BE0;
+            --primary-dark: #232DA2;
+            --secondary: #6C63FF;
+            --accent: #FF6B6B;
+            --dark: #151417;
+            --light: #F5F5F7;
+            --gray: #94A3B8;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --gradient-1: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-2: linear-gradient(135deg, var(--accent), #FFA15F);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        button {
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(21, 20, 23, 0.8);
+            border-bottom: 1px solid var(--card-border);
+            transition: var(--transition);
+        }
+
+        .nav-scrolled {
+            padding: 1rem 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .resume-btn {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-greeting {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-greeting::after {
+            content: '';
+            height: 1px;
+            width: 80px;
+            background: var(--accent);
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-title span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .hero-btn {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .primary-btn {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--light);
+            border: 1px solid var(--card-border);
+        }
+
+        .secondary-btn:hover {
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            color: var(--light);
+            font-size: 1.4rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            filter: blur(100px);
+            z-index: -1;
+        }
+
+        .shape-1 {
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            animation: floatAnimation 8s infinite alternate;
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            left: 15%;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-2);
+            animation: floatAnimation 12s infinite alternate-reverse;
+        }
+
+        .shape-3 {
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            background: rgba(108, 99, 255, 0.5);
+            animation: floatAnimation 15s infinite alternate;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(30px, -30px) scale(1.05);
+            }
+            100% {
+                transform: translate(-30px, 30px) scale(0.95);
+            }
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .about-image-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--secondary);
+            border-radius: 30px;
+            z-index: -1;
+            animation: borderAnimation 4s infinite alternate;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            margin-top: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--secondary);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+        }
+
+        .skill-item::before {
+            content: '▹';
+            color: var(--accent);
+            margin-right: 0.75rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--secondary);
+            padding: 0.3rem 0.75rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--gray);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Education Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--card-border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            animation: fadeIn 0.5s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-place {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .timeline-description {
+            color: var(--gray);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--dark);
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -12px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -12px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-top: 3rem;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding: 1rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .testimonial-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            min-width: 350px;
+            scroll-snap-align: start;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .testimonial-content {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--secondary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .author-role {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            text-align: center;
+        }
+
+        .contact-text {
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-cta {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .contact-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-link i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .contact-link span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-link {
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--secondary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social a {
+            color: var(--gray);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Project Detail Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: var(--dark);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            animation: modalAnimation 0.5s forwards;
+        }
+
+        @keyframes modalAnimation {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-subtitle {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .modal-description {
+            margin-bottom: 2rem;
+        }
+
+        .modal-features {
+            margin-bottom: 2rem;
+        }
+
+        .modal-features h4 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            color: var(--gray);
+        }
+
+        .feature-item i {
+            color: var(--secondary);
+            margin-right: 0.75rem;
+            margin-top: 5px;
+        }
+
+        .modal-tech {
+            margin-bottom: 2rem;
+        }
+
+        .modal-tech h4 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+
+        .modal-tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .modal-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .modal-btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+        }
+
+        .modal-btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 1px solid var(--card-border);
+        }
+
+        .modal-btn-secondary:hover {
+            border-color: var(--secondary);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                left: 0 !important;
+            }
+
+            .timeline-item::before {
+                left: 18px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-greeting {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--dark);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 5rem 2rem;
+                transition: var(--transition);
+                z-index: 900;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                border-left: 1px solid var(--card-border);
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .close-menu {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                background: transparent;
+                border: none;
+                color: var(--gray);
+                font-size: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 4rem 0;
+            }
+
+            .stat-item {
+                padding: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .skill-category {
+                padding: 1.5rem;
+            }
+
+            .testimonial-card {
+                min-width: 280px;
+                padding: 1.5rem;
+            }
+
+            .contact-links {
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .stagger-in.appear {
+            animation: staggerAnimation 0.5s forwards;
+        }
+
+        @keyframes staggerAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-left.appear {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-right.appear {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.appear {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Cursor Animation */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            pointer-events: none;
+            opacity: 0.5;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+            z-index: 9999;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: white;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            transition: opacity 0.3s ease, transform 0.1s ease;
+        }
+
+        .cursor-grow {
+            transform: translate(-50%, -50%) scale(2.5);
+            background: rgba(108, 99, 255, 0.2);
+            mix-blend-mode: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Kenneth<span>Ng</span></a>
+            <div class="nav-links" id="navLinks">
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#" class="resume-btn">
+                    <i class="fas fa-file-alt"></i>
+                    Resume
+                </a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <div class="hero-greeting fade-in">
+                <span>Hello there, I'm</span>
+            </div>
+            <h1 class="hero-title fade-in">
+                Kenneth Ng.<br>
+                I build <span>intelligent</span> digital solutions.
+            </h1>
+            <p class="hero-subtitle fade-in">
+                Full Stack Developer & Data Scientist specializing in creating exceptional digital experiences with expertise in AI, blockchain, and data visualization.
+            </p>
+            <div class="hero-cta fade-in">
+                <a href="#projects" class="hero-btn primary-btn">
+                    <i class="fas fa-code"></i>
+                    View My Work
+                </a>
+                <a href="#contact" class="hero-btn secondary-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Get In Touch
+                </a>
+            </div>
+            <div class="social-links fade-in">
+                <a href="https://github.com/kennethPakChungNg" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/chung-pak-ng-a6729016b/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div class="bg-animation">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-container slide-in-left">
+                    <img src="https://via.placeholder.com/500x600" alt="Kenneth Ng" class="about-image">
+                </div>
+                <div class="about-text slide-in-right">
+                    <h2 class="section-title">About Me</h2>
+                    <p>
+                        I'm a Full Stack Developer and Data Scientist with a passion for building intelligent digital solutions. My journey in technology has equipped me with a diverse skill set spanning web development, data analysis, and emerging technologies like blockchain and AI.
+                    </p>
+                    <p>
+                        With a First Class Honours BSc in Computing and currently pursuing a Master's in Data Science at The University of Texas at Austin, I combine academic knowledge with practical expertise to deliver high-quality solutions that solve real-world problems.
+                    </p>
+                    <p>
+                        My experience includes developing complex web applications, implementing AI models, and leading technical projects. I'm constantly exploring new technologies and approaches to enhance my skill set and create innovative solutions.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Technologies Mastered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">My Skills</h2>
+            <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
+                My technical expertise spans multiple domains, allowing me to create comprehensive end-to-end solutions that combine frontend elegance with backend robustness.
+            </p>
+            <div class="skills-container">
+                <div class="skills-grid">
+                    <div class="skill-category stagger-in">
+                        <h3>
+                            <i class="fas fa-code"></i>
+                            Programming Languages
+                        </h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">JavaScript / TypeScript</li>
+                            <li class="skill-item">Python</li>
+                            <li class="skill-item">Java</li>
+                            <li class="skill-item">PHP</li>
+                            <li class="skill-item">SQL</li>
+                            <li class="skill-item">Solidity</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category stagger-in">
+                        <h3>
+                            <i class="fas fa-laptop-code"></i>
+                            Frontend Technologies
+                        </h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">React.js</li>
+                            <li class="skill-item">Next.js</li>
+                            <li class="skill-item">Angular.js</li>
+                            <li class="skill-item">HTML5 & CSS3</li>
+                            <li class="skill-item">Bootstrap & Tailwind CSS</li>
+                            <li class="skill-item">Material UI</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category stagger-in">
+                        <h3>
+                            <i class="fas fa-server"></i>
+                            Backend Technologies
+                        </h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">Node.js & Express.js</li>
+                            <li class="skill-item">Flask</li>
+                            <li class="skill-item">RESTful APIs</li>
+                            <li class="skill-item">GraphQL</li>
+                            <li class="skill-item">Serverless Architecture</li>
+                            <li class="skill-item">Microservices</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category stagger-in">
+                        <h3>
+                            <i class="fas fa-database"></i>
+                            Databases
+                        </h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">MySQL</li>
+                            <li class="skill-item">MongoDB</li>
+                            <li class="skill-item">PostgreSQL</li>
+                            <li class="skill-item">MS SQL Server</li>
+                            <li class="skill-item">Oracle SQL</li>
+                            <li class="skill-item">Redis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category stagger-in">
+                        <h3>
+                            <i class="fas fa-brain"></i>
+                            AI & Data Science
+                        </h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">Machine Learning</li>
+                            <li class="skill-item">TensorFlow & PyTorch</li>
+                            <li class="skill-item">Data Analysis & Visualization</li>
+                            <li class="skill-item">Natural Language Processing</li>
+                            <li class="skill-item">Computer Vision</li>
+                            <li class="skill-item">Large Language Models</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category stagger-in">
+                        <h3>
+                            <i class="fas fa-link"></i>
+                            Blockchain
+                        </h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">Smart Contract Development</li>
+                            <li class="skill-item">Web3.js & Ethers.js</li>
+                            <li class="skill-item">Ethereum, Polygon, Avalanche</li>
+                            <li class="skill-item">DeFi Protocols</li>
+                            <li class="skill-item">Token Standards (ERC-20, ERC-721)</li>
+                            <li class="skill-item">Blockchain Security Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
+                Here are some of my recent projects showcasing my skills in AI, blockchain, data science, and full-stack development.
+            </p>
+            <div class="projects-grid">
+                <!-- VectorShop Project -->
+                <div class="project-card stagger-in">
+                    <img src="https://via.placeholder.com/350x200" alt="VectorShop" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">VectorShop: Semantic Product Search</h3>
+                        <p class="project-description">
+                            A production-ready semantic search system for e-commerce that enables natural language query understanding with advanced vector embeddings.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">FAISS</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Vector Search</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" data-project="vectorshop">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a href="https://github.com/kennethPakChungNg/vectorshop" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SpaceX Launch Prediction Project -->
+                <div class="project-card stagger-in">
+                    <img src="https://via.placeholder.com/350x200" alt="SpaceX Launch Prediction" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">SpaceX Launch Success Prediction</h3>
+                        <p class="project-description">
+                            Machine learning model predicting SpaceX Falcon 9 first stage landing success with 83% accuracy, combining data analysis with interactive visualizations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" data-project="spacex">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a href="https://github.com/kennethPakChungNg/spacex-launch-prediction" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blockchain Security Analysis Project -->
+                <div class="project-card stagger-in">
+                    <img src="https://via.placeholder.com/350x200" alt="Blockchain Security Analysis" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">AI Blockchain Security Analysis</h3>
+                        <p class="project-description">
+                            Chainlink Hackathon 2024 project that leverages AI to detect smart contract vulnerabilities and analyze fraudulent transactions across multiple blockchains.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">Blockchain</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" data-project="blockchain">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a href="https://github.com/kennethPakChungNg/blockchain-security-analysis" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Education System Project -->
+                <div class="project-card stagger-in">
+                    <img src="https://via.placeholder.com/350x200" alt="AI Education System" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">AI Education System</h3>
+                        <p class="project-description">
+                            Theta Hackathon 2024 project creating an AI-powered education platform that generates personalized blockchain learning experiences with adaptive content.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Web3</span>
+                            <span class="tech-tag">GPT-4</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" data-project="education">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a href="https://github.com/kennethPakChungNg/AI-Education-System" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for future projects -->
+                <div class="project-card stagger-in">
+                    <div class="project-content" style="justify-content: center; align-items: center; text-align: center; height: 100%;">
+                        <i class="fas fa-plus-circle" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1.5rem;"></i>
+                        <h3 class="project-title">More Projects Coming Soon</h3>
+                        <p style="color: var(--gray);">Check back later for more exciting projects!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Education & Experience</h2>
+            <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
+                My academic journey and professional experience that have shaped my career in technology.
+            </p>
+            <div class="timeline">
+                <!-- MSc Data Science -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2025 - Present
+                        </div>
+                        <h3 class="timeline-title">Master of Science in Data Science</h3>
+                        <p class="timeline-place">The University of Texas at Austin</p>
+                        <p class="timeline-description">
+                            Specializing in machine learning, AI, and advanced data analytics with a focus on practical applications in business and technology.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Full Stack Developer at HKUMed -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2023 - Present
+                        </div>
+                        <h3 class="timeline-title">Full Stack Developer</h3>
+                        <p class="timeline-place">HKUMed - The University of Hong Kong</p>
+                        <p class="timeline-description">
+                            Leading development of Next.js applications, implementing complex form solutions, and developing public-facing websites for academic programs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BSc Computing -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2023 - 2024
+                        </div>
+                        <h3 class="timeline-title">Bachelor of Science (Hons) Computing</h3>
+                        <p class="timeline-place">University of Greenwich</p>
+                        <p class="timeline-description">
+                            Graduated with First Class Honours, developing strong foundations in software engineering, algorithms, and system design.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Advanced Diploma -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2021 - 2023
+                        </div>
+                        <h3 class="timeline-title">Advanced Diploma in Business Information Technology</h3>
+                        <p class="timeline-place">HKU SPACE</p>
+                        <p class="timeline-description">
+                            Achieved GPA 3.83, focusing on programming fundamentals, database management, and business applications of technology.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Operations Manager -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2016 - 2019
+                        </div>
+                        <h3 class="timeline-title">Operations Manager</h3>
+                        <p class="timeline-place">Diginspiracion Mexico S.A. DE C.V.</p>
+                        <p class="timeline-description">
+                            Led operations for a digital printing factory, driving 500% increase in sales and implementing efficient production systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">What People Say</h2>
+            <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
+                Feedback from colleagues and clients who I've had the pleasure to work with.
+            </p>
+            <div class="testimonials">
+                <div class="testimonial-slider">
+                    <div class="testimonial-card scale-in">
+                        <div class="testimonial-content">
+                            <p>
+                                "Kenneth is an exceptional developer with strong technical skills and the ability to understand business requirements. His AI implementations have significantly improved our search functionality."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Dr. Sarah Chen</h4>
+                                <p class="author-role">Project Lead, HKUMed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card scale-in">
+                        <div class="testimonial-content">
+                            <p>
+                                "Working with Kenneth on the blockchain security project was a pleasure. His technical knowledge and innovative approach to problem-solving made a complex project manageable and successful."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
+                            <div class="author-info">
+                                <h4>James Wilson</h4>
+                                <p class="author-role">Senior Developer, Chainlink</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card scale-in">
+                        <div class="testimonial-content">
+                            <p>
+                                "Kenneth's data science expertise and attention to detail made our predictive model both accurate and practical. His ability to explain complex concepts clearly is invaluable."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/50x50" alt="Author" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Maria Rodriguez</h4>
+                                <p class="author-role">Data Scientist, TechFirm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-container fade-in">
+                <p class="contact-text">
+                    I'm currently open to job opportunities and collaboration on interesting projects.
+                    Whether you have a question or just want to say hi, I'll do my best to get back to you!
+                </p>
+                <a href="mailto:ngchungpak@gmail.com" class="contact-cta">
+                    <i class="fas fa-paper-plane"></i>
+                    Say Hello
+                </a>
+                <div class="contact-links">
+                    <a href="mailto:ngchungpak@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>ngchungpak@gmail.com</span>
+                    </a>
+                    <a href="tel:+85266588058" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        <span>+852 6658 8058</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/chung-pak-ng-a6729016b/" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/kennethPakChungNg" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#hero" class="footer-logo">Kenneth<span>Ng</span></a>
+                <div class="footer-links">
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#skills" class="footer-link">Skills</a>
+                    <a href="#projects" class="footer-link">Projects</a>
+                    <a href="#education" class="footer-link">Education</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/kennethPakChungNg" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/chung-pak-ng-a6729016b/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:ngchungpak@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p class="copyright">
+                    © 2025 Kenneth Ng. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modals -->
+    <!-- VectorShop Modal -->
+    <div class="modal" id="vectorshopModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">VectorShop: Semantic Product Search System</h2>
+                <p class="modal-subtitle">
+                    A production-ready semantic search engine for e-commerce that understands natural language queries
+                </p>
+            </div>
+            <img src="https://via.placeholder.com/800x400" alt="VectorShop" class="modal-image">
+            <div class="modal-description">
+                <p>
+                    VectorShop is a sophisticated semantic search system for small-to-medium sized online stores, allowing customers to find products using natural language queries instead of just keywords. The system combines keyword search, vector similarity, and AI reasoning to deliver highly relevant search results even for complex queries.
+                </p>
+                <p>
+                    The system uses a hybrid architecture that combines sparse retrieval (BM25) with dense vector embeddings (FAISS) and a reranking layer using transformer models. This approach delivers sub-100ms query times even with millions of products, making it suitable for production environments.
+                </p>
+            </div>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Natural language understanding for complex product queries
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Hybrid search technology combining keywords, vectors, and AI reasoning
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Cost-effective implementation using optimized open-source models
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Multilingual support for both English and regional languages
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Easy integration with popular e-commerce platforms like Shopify
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-tech">
+                <h4>Technologies Used</h4>
+                <div class="modal-tech-list">
+                    <span class="tech-tag">Python 3.9+</span>
+                    <span class="tech-tag">PyTorch 1.9+</span>
+                    <span class="tech-tag">FAISS</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">DeepSeek-R1-Distill</span>
+                    <span class="tech-tag">BM25</span>
+                    <span class="tech-tag">Natural Language Processing</span>
+                    <span class="tech-tag">Vector Search</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://github.com/kennethPakChungNg/vectorshop" target="_blank" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-github"></i>
+                    View on GitHub
+                </a>
+                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SpaceX Launch Prediction Modal -->
+    <div class="modal" id="spacexModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">SpaceX Launch Success Prediction</h2>
+                <p class="modal-subtitle">
+                    Machine learning project predicting Falcon 9 first stage landing success
+                </p>
+            </div>
+            <img src="https://via.placeholder.com/800x400" alt="SpaceX Launch Prediction" class="modal-image">
+            <div class="modal-description">
+                <p>
+                    This project uses machine learning to predict SpaceX Falcon 9 first stage landing success, which helps estimate launch costs since SpaceX rocket launches are significantly cheaper when the first stage can be reused. The analysis combines data from multiple sources, including the SpaceX REST API and web scraping from Wikipedia.
+                </p>
+                <p>
+                    The project achieved 83% prediction accuracy by analyzing launch records with details on boosters, payloads, and landing outcomes. It includes interactive visualizations and dashboards to explore the data and understand the factors that influence landing success.
+                </p>
+            </div>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Comprehensive data collection from SpaceX API and web scraping
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Interactive dashboards and geographic visualizations
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Multiple machine learning models including Logistic Regression, SVM, Decision Trees, and KNN
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        83% prediction accuracy on test data
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Analysis of key factors influencing launch success
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-tech">
+                <h4>Technologies Used</h4>
+                <div class="modal-tech-list">
+                    <span class="tech-tag">Python 3.x</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">NumPy</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Matplotlib</span>
+                    <span class="tech-tag">Seaborn</span>
+                    <span class="tech-tag">Plotly Dash</span>
+                    <span class="tech-tag">Folium</span>
+                    <span class="tech-tag">API Integration</span>
+                    <span class="tech-tag">Web Scraping</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://github.com/kennethPakChungNg/spacex-launch-prediction" target="_blank" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-github"></i>
+                    View on GitHub
+                </a>
+                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blockchain Security Analysis Modal -->
+    <div class="modal" id="blockchainModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">AI Blockchain Security Analysis System</h2>
+                <p class="modal-subtitle">
+                    Chainlink Hackathon 2024 project for analyzing blockchain security
+                </p>
+            </div>
+            <img src="https://via.placeholder.com/800x400" alt="Blockchain Security Analysis" class="modal-image">
+            <div class="modal-description">
+                <p>
+                    The Generative AI Blockchain Security Analysis System leverages artificial intelligence to analyze blockchain transactions and smart contracts for security vulnerabilities and potential fraud. This project was developed for the Chainlink Hackathon 2024 and implements a chain-agnostic approach supporting Ethereum, Polygon, and Avalanche networks.
+                </p>
+                <p>
+                    The system combines Chainlink Functions for secure on-chain data retrieval with OpenAI's LLM for security analysis, providing detailed reports on potential vulnerabilities and suspicious transactions. Analysis reports are stored on IPFS via QuickNode for decentralized, permanent storage.
+                </p>
+            </div>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Smart contract vulnerability analysis with severity categorization
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Blockchain transaction fraud detection across multiple chains
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Chain-agnostic implementation supporting Ethereum, Polygon, and Avalanche
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        IPFS integration for decentralized storage of analysis reports
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        AI-powered fraud detection with confidence ratings
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-tech">
+                <h4>Technologies Used</h4>
+                <div class="modal-tech-list">
+                    <span class="tech-tag">Node.js & Express</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">Chainlink Functions</span>
+                    <span class="tech-tag">OpenAI API</span>
+                    <span class="tech-tag">IPFS via QuickNode</span>
+                    <span class="tech-tag">BitQuery</span>
+                    <span class="tech-tag">Ethereum</span>
+                    <span class="tech-tag">Polygon</span>
+                    <span class="tech-tag">Avalanche</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://github.com/kennethPakChungNg/blockchain-security-analysis" target="_blank" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-github"></i>
+                    View on GitHub
+                </a>
+                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Education System Modal -->
+    <div class="modal" id="educationModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">AI Education System</h2>
+                <p class="modal-subtitle">
+                    Theta Hackathon 2024 project creating an AI-powered education platform
+                </p>
+            </div>
+            <img src="https://via.placeholder.com/800x400" alt="AI Education System" class="modal-image">
+            <div class="modal-description">
+                <p>
+                    The AI Education System is a platform that leverages generative AI to create personalized blockchain and Web3 learning experiences. Built for the Theta Network 2024 Hackathon, this system demonstrates how AI can revolutionize education by adapting to each learner's background, interests, and learning style.
+                </p>
+                <p>
+                    The platform uses large language models (LLMs) to generate customized course content, answer student questions, create quizzes, and provide explanations—all tailored to the individual learner's profile. It features blockchain-based authentication using Theta wallet addresses and integrates with Theta EdgeCloud for AI model inference.
+                </p>
+            </div>
+            <div class="modal-features">
+                <h4>Key Features</h4>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Personalized learning that adapts to your background and interests
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        AI tutoring through a conversational interface
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Dynamic course outline generation based on user characteristics
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Automated quiz generation and assessment
+                    </li>
+                    <li class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        Web3 integration with wallet-based authentication
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-tech">
+                <h4>Technologies Used</h4>
+                <div class="modal-tech-list">
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">Node.js/Express</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Material UI</span>
+                    <span class="tech-tag">OpenAI (GPT-4o)</span>
+                    <span class="tech-tag">Theta EdgeCloud</span>
+                    <span class="tech-tag">Stable Diffusion</span>
+                    <span class="tech-tag">Web3.js</span>
+                    <span class="tech-tag">Theta Network</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="https://github.com/kennethPakChungNg/AI-Education-System" target="_blank" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-github"></i>
+                    View on GitHub
+                </a>
+                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.add('open');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('open');
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered delay to .stagger-in elements
+        document.querySelectorAll('.stagger-in').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Timeline animation
+        document.querySelectorAll('.timeline-item').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Project modals
+        const modals = document.querySelectorAll('.modal');
+        const modalButtons = document.querySelectorAll('[data-project]');
+        const modalCloseButtons = document.querySelectorAll('.modal-close');
+
+        modalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const projectId = button.getAttribute('data-project');
+                const modal = document.getElementById(`${projectId}Modal`);
+                if (modal) {
+                    modal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Custom cursor
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Cursor grow effect on hover
+        const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-category, .stat-item, .timeline-content, .testimonial-card');
+
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-grow');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-grow');
+            });
+        });
+
+        // Hide cursor when leaving window
+        document.addEventListener('mouseout', (e) => {
+            if (e.relatedTarget === null) {
+                cursor.style.opacity = '0';
+                cursorDot.style.opacity = '0';
+            }
+        });
+
+        document.addEventListener('mouseover', () => {
+            cursor.style.opacity = '0.5';
+            cursorDot.style.opacity = '1';
+        });
+
+        // Add project functionality
+        function addProject(title, description, image, technologies, github, demo) {
+            const projectsGrid = document.querySelector('.projects-grid');
+            
+            // Create new project card
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card stagger-in';
+            
+            // Create project content
+            projectCard.innerHTML = `
+                <img src="${image}" alt="${title}" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">${title}</h3>
+                    <p class="project-description">${description}</p>
+                    <div class="project-tech">
+                        ${technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-project="new-project">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                        <a href="${github}" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="${demo}" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            // Add new project before the "More Projects Coming Soon" card
+            const placeholderCard = projectsGrid.lastElementChild;
+            projectsGrid.insertBefore(projectCard, placeholderCard);
+            
+            // Re-initialize animations
+            observer.observe(projectCard);
+            
+            // Add modal functionality
+            const modalButton = projectCard.querySelector('[data-project]');
+            modalButton.addEventListener('click', () => {
+                // Create and open a new modal (simplified for this example)
+                alert(`Modal for ${title} would open here!`);
+            });
+        }
+
+        // Example usage (can be called dynamically to add more projects)
+        // Uncomment to test adding a project
+        /*
+        addProject(
+            'New Project Title', 
+            'This is a description of the new project.',
+            'https://via.placeholder.com/350x200',
+            ['JavaScript', 'React', 'Node.js', 'MongoDB'],
+            'https://github.com/username/project',
+            'https://demo-link.com'
+        );
+        */
+    </script>
+</body>
+</html>

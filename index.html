@@ -1329,12 +1329,14 @@
                 border: none;
                 color: var(--gray);
                 font-size: 1.5rem;
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-                width: 0;
-                height: 0;
-                overflow: hidden;
+                /* Completely hide in desktop view with !important to override any other styles */
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+                width: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
             }
 
             .projects-grid {
@@ -1479,13 +1481,14 @@
 
         @media (max-width: 768px) {
             .close-menu {
-                opacity: 1;
-                visibility: visible;
-                pointer-events: auto;
-                width: auto;
-                height: auto;
-                overflow: visible;
-                display: block;
+                /* Only show in mobile view */
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
+                width: auto !important;
+                height: auto !important;
+                overflow: visible !important;
             }
         }
     </style>

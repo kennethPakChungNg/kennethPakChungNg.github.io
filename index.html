@@ -1322,7 +1322,6 @@
             }
 
             .close-menu {
-                display: none;
                 position: absolute;
                 top: 2rem;
                 right: 2rem;
@@ -1330,6 +1329,12 @@
                 border: none;
                 color: var(--gray);
                 font-size: 1.5rem;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                width: 0;
+                height: 0;
+                overflow: hidden;
             }
 
             .projects-grid {
@@ -1471,6 +1476,18 @@
             background: rgba(108, 99, 255, 0.2);
             mix-blend-mode: normal;
         }
+
+        @media (max-width: 768px) {
+            .close-menu {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                width: auto;
+                height: auto;
+                overflow: visible;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1551,7 +1568,7 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-container slide-in-left">
-                    <img src="https://via.placeholder.com/500x600" alt="Kenneth Ng" class="about-image">
+                    <img src="./images/image.png" alt="Kenneth Ng" class="about-image">
                 </div>
                 <div class="about-text slide-in-right">
                     <h2 class="section-title">About Me</h2>

@@ -1474,7 +1474,7 @@
         <div class="nav-container">
             <a href="#hero" class="logo">Kenneth<span>Ng</span></a>
             <div class="nav-links" id="navLinks">
-                <button class="close-menu" id="closeMenu">
+                <button class="close-menu" id="closeMenu" style="display: none; opacity: 0; visibility: hidden; position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;">
                     <i class="fas fa-times"></i>
                 </button>
                 <a href="#about" class="nav-link">About</a>
@@ -2390,14 +2390,26 @@
 
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.add('open');
-            // Only make close button visible when menu is opened
-            closeMenu.classList.add('is-visible');
+            // Show close button by directly modifying its style properties
+            closeMenu.style.display = 'block';
+            closeMenu.style.opacity = '1';
+            closeMenu.style.visibility = 'visible';
+            closeMenu.style.width = 'auto';
+            closeMenu.style.height = 'auto';
+            closeMenu.style.overflow = 'visible';
+            closeMenu.style.pointerEvents = 'auto';
         });
 
         closeMenu.addEventListener('click', () => {
             navLinks.classList.remove('open');
-            // Hide the button again when menu is closed
-            closeMenu.classList.remove('is-visible');
+            // Hide close button again
+            closeMenu.style.display = 'none';
+            closeMenu.style.opacity = '0';
+            closeMenu.style.visibility = 'hidden';
+            closeMenu.style.width = '0';
+            closeMenu.style.height = '0';
+            closeMenu.style.overflow = 'hidden';
+            closeMenu.style.pointerEvents = 'none';
         });
 
         // Smooth scrolling for navigation links

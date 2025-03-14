@@ -32,12 +32,17 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'DM Sans', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             line-height: 1.6;
-            overflow-x: hidden;
+            width: 100%;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -172,6 +177,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px; /* Added padding to account for navbar */
         }
 
         .hero-content {
@@ -1286,6 +1292,11 @@
             .hero-greeting {
                 font-size: 1rem;
             }
+            
+            .hero {
+                padding-top: 120px; /* Increased padding in mobile view */
+                min-height: calc(100vh - 40px); /* Adjusted to account for navbar */
+            }
 
             .hero-cta {
                 flex-direction: column;
@@ -1315,6 +1326,7 @@
                 z-index: 900;
                 box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
                 border-left: 1px solid var(--card-border);
+                overflow-y: auto;
             }
 
             .nav-links.open {
@@ -1329,14 +1341,15 @@
                 border: none;
                 color: var(--gray);
                 font-size: 1.5rem;
-                /* Completely hide in desktop view with !important to override any other styles */
+                /* Complete removal in all views */
                 display: none !important;
-                opacity: 0 !important;
-                visibility: hidden !important;
-                pointer-events: none !important;
-                width: 0 !important;
-                height: 0 !important;
-                overflow: hidden !important;
+            }
+
+            @media (max-width: 768px) {
+                .close-menu.is-visible {
+                    /* Only show when specifically added this class */
+                    display: block !important;
+                }
             }
 
             .projects-grid {
@@ -1442,62 +1455,20 @@
             transform: scale(1);
         }
 
-        /* Cursor Animation */
-        .custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--secondary);
-            pointer-events: none;
-            opacity: 0.5;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s ease;
-            z-index: 9999;
-            mix-blend-mode: difference;
-        }
-
-        .cursor-dot {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: white;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 10000;
-            transition: opacity 0.3s ease, transform 0.1s ease;
-        }
-
-        .cursor-grow {
-            transform: translate(-50%, -50%) scale(2.5);
-            background: rgba(108, 99, 255, 0.2);
-            mix-blend-mode: normal;
+        /* Cursor Animation - Removed */
+        .custom-cursor, .cursor-dot {
+            display: none !important;
         }
 
         @media (max-width: 768px) {
-            .close-menu {
-                /* Only show in mobile view */
+            .close-menu.is-visible {
+                /* Only show when specifically added this class */
                 display: block !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                pointer-events: auto !important;
-                width: auto !important;
-                height: auto !important;
-                overflow: visible !important;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
-    <div class="cursor-dot"></div>
-
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -2419,10 +2390,14 @@
 
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.add('open');
+            // Only make close button visible when menu is opened
+            closeMenu.classList.add('is-visible');
         });
 
         closeMenu.addEventListener('click', () => {
             navLinks.classList.remove('open');
+            // Hide the button again when menu is closed
+            closeMenu.classList.remove('is-visible');
         });
 
         // Smooth scrolling for navigation links
@@ -2536,44 +2511,6 @@
                     document.body.style.overflow = 'auto';
                 }
             });
-        });
-
-        // Custom cursor
-        const cursor = document.querySelector('.custom-cursor');
-        const cursorDot = document.querySelector('.cursor-dot');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-        });
-
-        // Cursor grow effect on hover
-        const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-category, .stat-item, .timeline-content, .testimonial-card');
-
-        hoverElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.classList.add('cursor-grow');
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('cursor-grow');
-            });
-        });
-
-        // Hide cursor when leaving window
-        document.addEventListener('mouseout', (e) => {
-            if (e.relatedTarget === null) {
-                cursor.style.opacity = '0';
-                cursorDot.style.opacity = '0';
-            }
-        });
-
-        document.addEventListener('mouseover', () => {
-            cursor.style.opacity = '0.5';
-            cursorDot.style.opacity = '1';
         });
 
         // Add project functionality

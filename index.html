@@ -1480,77 +1480,71 @@
             align-items: flex-start;
         }
 
-        /* Modern bullet point styling */
+        /* Modern qualities section styling */
         .about-qualities {
             margin-top: 2rem;
-            list-style: none !important;
-            padding-left: 0 !important;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
-        .about-qualities li {
-            margin-bottom: 1.5rem !important;
-            color: var(--gray) !important;
-            display: flex !important;
-            align-items: flex-start !important;
-            line-height: 1.6 !important;
+        .quality-item {
             position: relative;
-            padding-left: 3rem;
+            padding-left: 1.5rem;
             transition: transform 0.3s ease;
         }
 
-        .about-qualities li:hover {
-            transform: translateX(5px);
-        }
-
-        .about-qualities li::before {
-            content: '' !important;
+        .quality-item::before {
+            content: '';
             position: absolute;
             left: 0;
-            top: 0.4rem;
-            width: 12px;
-            height: 12px;
+            top: 0.7rem;
+            width: 10px;
+            height: 10px;
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             border-radius: 50%;
             box-shadow: 0 2px 10px rgba(108, 99, 255, 0.2);
         }
 
-        .about-qualities li::after {
-            content: '';
-            position: absolute;
-            left: 6px;
-            top: 1.2rem;
-            width: 1px;
-            height: calc(100% - 0.2rem);
-            background: linear-gradient(to bottom, var(--secondary) 0%, transparent 100%);
-            display: block;
+        .quality-item:hover {
+            transform: translateY(-5px);
         }
 
-        .about-qualities li:last-child::after {
-            display: none;
-        }
-
-        .about-qualities li strong {
-            color: var(--light) !important;
-            margin-right: 0.5rem !important;
-            font-weight: 600 !important;
-            font-size: 1.05rem;
-            display: inline-block;
+        .quality-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.7rem;
+            color: var(--light);
             position: relative;
+            display: inline-block;
         }
 
-        .about-qualities li strong::after {
+        .quality-title::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -2px;
+            bottom: -3px;
             width: 0;
             height: 2px;
             background: var(--gradient-1);
             transition: width 0.3s ease;
         }
 
-        .about-qualities li:hover strong::after {
+        .quality-item:hover .quality-title::after {
             width: 100%;
+        }
+
+        .quality-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Make it responsive */
+        @media (max-width: 768px) {
+            .about-qualities {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
         }
 
         /* Ensure paragraph text is gray */
@@ -1651,14 +1645,37 @@
                     <p>
                         What defines me beyond technical skills are the qualities forged through this journey:
                     </p>
-                    <ul class="about-qualities">
-                        <li><strong>Perspective-taking:</strong> I naturally see problems from multiple angles, considering others' viewpoints before making decisions.</li>
-                        <li><strong>Resilience:</strong> Setbacks are temporary obstacles, not permanent roadblocks.</li>
-                        <li><strong>Genuine empathy:</strong> My diverse experiences help me connect authentically with colleagues and understand user needs deeply.</li>
-                        <li><strong>Creative problem-solving:</strong> My non-linear background gives me fresh approaches to technical challenges.</li>
-                        <li><strong>Continuous learning:</strong> I embrace new concepts with enthusiasm, knowing growth comes from stepping outside comfort zones.</li>
-                        <li><strong>Bridging worlds:</strong> I communicate effectively across technical and non-technical domains.</li>
-                    </ul>
+                    <div class="about-qualities">
+                        <div class="quality-item">
+                            <h4 class="quality-title">Perspective-taking</h4>
+                            <p class="quality-description">I naturally see problems from multiple angles, considering others' viewpoints before making decisions.</p>
+                        </div>
+                        
+                        <div class="quality-item">
+                            <h4 class="quality-title">Resilience</h4>
+                            <p class="quality-description">Setbacks are temporary obstacles, not permanent roadblocks.</p>
+                        </div>
+                        
+                        <div class="quality-item">
+                            <h4 class="quality-title">Genuine empathy</h4>
+                            <p class="quality-description">My diverse experiences help me connect authentically with colleagues and understand user needs deeply.</p>
+                        </div>
+                        
+                        <div class="quality-item">
+                            <h4 class="quality-title">Creative problem-solving</h4>
+                            <p class="quality-description">My non-linear background gives me fresh approaches to technical challenges.</p>
+                        </div>
+                        
+                        <div class="quality-item">
+                            <h4 class="quality-title">Continuous learning</h4>
+                            <p class="quality-description">I embrace new concepts with enthusiasm, knowing growth comes from stepping outside comfort zones.</p>
+                        </div>
+                        
+                        <div class="quality-item">
+                            <h4 class="quality-title">Bridging worlds</h4>
+                            <p class="quality-description">I communicate effectively across technical and non-technical domains.</p>
+                        </div>
+                    </div>
                     <p>
                         Today, as I prepare to relocate to Toronto with my family, I bring this unique combination of technical expertise and human-centered values to every project. My goal remains consistent: creating technology that truly serves people while building meaningful connections along the way.
                     </p>

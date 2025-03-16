@@ -1553,6 +1553,57 @@
             margin-bottom: 1rem !important;
             line-height: 1.6 !important;
         }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .certification-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .certification-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .certification-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .certification-id {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .certification-description {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .certification-issuer {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -2087,21 +2138,6 @@
                     </div>
                 </div>
 
-                <!-- Advanced Diploma -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">
-                            <i class="fas fa-calendar-alt"></i>
-                            2021 - 2023
-                        </div>
-                        <h3 class="timeline-title">Advanced Diploma in Business Information Technology</h3>
-                        <p class="timeline-place">HKU SPACE</p>
-                        <p class="timeline-description">
-                            Achieved GPA 3.83, focusing on programming fundamentals, database management, and business applications of technology.
-                        </p>
-                    </div>
-                </div>
-
                 <!-- Operations Manager -->
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -2116,10 +2152,105 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- Executive Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2019 - 2023
+                        </div>
+                        <h3 class="timeline-title">Executive Assistant</h3>
+                        <p class="timeline-place">Hospital Authority · Hong Kong SAR</p>
+                        <p class="timeline-description">
+                            Coordinated complex cross-departmental meetings, maintained detailed patient care plans for multidisciplinary teams, and managed scheduling systems for medical appointments.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Advanced Diploma -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2021 - 2023
+                        </div>
+                        <h3 class="timeline-title">Advanced Diploma in Business Information Technology</h3>
+                        <p class="timeline-place">HKU SPACE</p>
+                        <p class="timeline-description">
+                            Achieved GPA 3.83, focusing on programming fundamentals, database management, and business applications of technology.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Certifications</h2>
+            <p class="fade-in" style="color: var(--gray); max-width: 700px; margin-bottom: 2rem;">
+                Professional certifications that validate my expertise in various technical domains.
+            </p>
+            <div class="certifications-grid">
+                <!-- AWS Solution Architect -->
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">AWS Certified Solutions Architect Associate</h3>
+                        <p class="certification-id">ID: 481058209</p>
+                        <p class="certification-description">
+                            Validates expertise in designing and deploying scalable systems on AWS.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- AWS Developer -->
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">AWS Certified Developer Associate</h3>
+                        <p class="certification-id">ID: 486136617</p>
+                        <p class="certification-description">
+                            Demonstrates proficiency in developing, deploying, and debugging cloud-based applications using AWS.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mathematics for Machine Learning -->
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Mathematics for Machine Learning Specialization</h3>
+                        <p class="certification-issuer">Coursera - Imperial College London</p>
+                        <p class="certification-description">
+                            Mastery of essential mathematical concepts for machine learning, including linear algebra, multivariate calculus, and PCA.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- IBM Data Science -->
+                <div class="certification-item fade-in">
+                    <div class="certification-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">IBM Professional Certificate in Data Science</h3>
+                        <p class="certification-description">
+                            Comprehensive training in data science methodologies, tools, and algorithms for real-world applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">

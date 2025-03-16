@@ -1480,60 +1480,77 @@
             align-items: flex-start;
         }
 
-        /* Style for the about section bullet points specifically */
+        /* Modern bullet point styling */
         .about-qualities {
-            margin-top: 1.5rem;
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .about-qualities li {
-            margin-bottom: 1rem;
-            color: var(--gray);
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .about-qualities li::before {
-            content: '▹';
-            color: var(--accent);
-            margin-right: 0.75rem;
-        }
-
-        .about-qualities li strong {
-            color: var(--light);
-            margin-right: 0.5rem;
-        }
-
-        /* Reset and reapply about qualities styling */
-        .about-qualities {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             list-style: none !important;
             padding-left: 0 !important;
-            color: var(--gray) !important;
         }
 
         .about-qualities li {
-            margin-bottom: 1rem !important;
+            margin-bottom: 1.5rem !important;
             color: var(--gray) !important;
             display: flex !important;
             align-items: flex-start !important;
             line-height: 1.6 !important;
-            text-align: left !important;
+            position: relative;
+            padding-left: 3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .about-qualities li:hover {
+            transform: translateX(5px);
         }
 
         .about-qualities li::before {
-            content: '▹' !important;
-            color: var(--accent) !important;
-            margin-right: 0.75rem !important;
-            font-size: 1rem !important;
-            line-height: 1.6 !important;
+            content: '' !important;
+            position: absolute;
+            left: 0;
+            top: 0.4rem;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(108, 99, 255, 0.2);
+        }
+
+        .about-qualities li::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 1.2rem;
+            width: 1px;
+            height: calc(100% - 0.2rem);
+            background: linear-gradient(to bottom, var(--secondary) 0%, transparent 100%);
+            display: block;
+        }
+
+        .about-qualities li:last-child::after {
+            display: none;
         }
 
         .about-qualities li strong {
             color: var(--light) !important;
-            margin-right: 0.25rem !important;
+            margin-right: 0.5rem !important;
             font-weight: 600 !important;
+            font-size: 1.05rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .about-qualities li strong::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .about-qualities li:hover strong::after {
+            width: 100%;
         }
 
         /* Ensure paragraph text is gray */

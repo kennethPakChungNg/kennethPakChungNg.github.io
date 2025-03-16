@@ -1467,6 +1467,42 @@
                 display: block !important;
             }
         }
+
+        /* Add this to your CSS (in the style section) */
+        .skill-list, .highlight-list, .feature-list {
+            list-style: none;
+        }
+
+        .highlight-item, .feature-item, .skill-item {
+            margin-bottom: 0.75rem;
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        /* Style for the about section bullet points specifically */
+        .about-qualities {
+            margin-top: 1.5rem;
+            list-style: none;
+        }
+
+        .about-qualities li {
+            margin-bottom: 1rem;
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .about-qualities li strong {
+            color: var(--light);
+            margin-right: 0.5rem;
+        }
+
+        .about-qualities li::before {
+            content: '▹';
+            color: var(--accent);
+            margin-right: 0.75rem;
+        }
     </style>
 </head>
 <body>
@@ -1565,7 +1601,7 @@
                     <p>
                         What defines me beyond technical skills are the qualities forged through this journey:
                     </p>
-                    <ul>
+                    <ul class="about-qualities">
                         <li><strong>Perspective-taking:</strong> I naturally see problems from multiple angles, considering others' viewpoints before making decisions.</li>
                         <li><strong>Resilience:</strong> Setbacks are temporary obstacles, not permanent roadblocks.</li>
                         <li><strong>Genuine empathy:</strong> My diverse experiences help me connect authentically with colleagues and understand user needs deeply.</li>

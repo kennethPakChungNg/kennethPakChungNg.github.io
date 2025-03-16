@@ -1504,6 +1504,44 @@
             color: var(--light);
             margin-right: 0.5rem;
         }
+
+        /* Reset and reapply about qualities styling */
+        .about-qualities {
+            margin-top: 1.5rem;
+            list-style: none !important;
+            padding-left: 0 !important;
+            color: var(--gray) !important;
+        }
+
+        .about-qualities li {
+            margin-bottom: 1rem !important;
+            color: var(--gray) !important;
+            display: flex !important;
+            align-items: flex-start !important;
+            line-height: 1.6 !important;
+            text-align: left !important;
+        }
+
+        .about-qualities li::before {
+            content: '▹' !important;
+            color: var(--accent) !important;
+            margin-right: 0.75rem !important;
+            font-size: 1rem !important;
+            line-height: 1.6 !important;
+        }
+
+        .about-qualities li strong {
+            color: var(--light) !important;
+            margin-right: 0.25rem !important;
+            font-weight: 600 !important;
+        }
+
+        /* Ensure paragraph text is gray */
+        .about-text p {
+            color: var(--gray) !important;
+            margin-bottom: 1rem !important;
+            line-height: 1.6 !important;
+        }
     </style>
 </head>
 <body>

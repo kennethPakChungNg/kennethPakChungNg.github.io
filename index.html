@@ -638,21 +638,47 @@
 
         .project-links {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
-            margin-top: auto;
+            margin-top: 1rem;
         }
 
         .project-link {
             color: var(--gray);
-            font-size: 1.2rem;
+            font-size: 0.85rem;
             transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            background-color: rgba(30, 30, 40, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            min-width: fit-content;
+            text-decoration: none;
+            border: 1px solid var(--dark-border);
         }
 
         .project-link:hover {
             color: var(--secondary);
+            background-color: rgba(40, 40, 60, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-link i {
+            font-size: 1rem;
+        }
+
+        .github-backend-link {
+            color: #58a6ff;
+        }
+
+        .github-frontend-link {
+            color: #6e76e5;
+        }
+
+        .devpost-link {
+            color: #00a9d3;
         }
 
         .project-btn {
@@ -1997,13 +2023,13 @@
                             <span class="tech-tag">OpenAI API</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/kennethPakChungNg/ChainLinkHackathonCore" target="_blank" class="project-link">
+                            <a href="https://github.com/kennethPakChungNg/ChainLinkHackathonCore" target="_blank" class="project-link github-backend-link">
                                 <i class="fab fa-github"></i> GitHub (Backend)
                             </a>
-                            <a href="https://github.com/kennethPakChungNg/ChainLinkHackathonUI" target="_blank" class="project-link">
+                            <a href="https://github.com/kennethPakChungNg/ChainLinkHackathonUI" target="_blank" class="project-link github-frontend-link">
                                 <i class="fab fa-github"></i> GitHub (Frontend)
                             </a>
-                            <a href="https://devpost.com/software/generative-ai-blockchain-security-analysis-system" class="project-link">
+                            <a href="https://devpost.com/software/generative-ai-blockchain-security-analysis-system" class="project-link devpost-link">
                                 <i class="fas fa-external-link-alt"></i> DEVPOST
                             </a>
                         </div>
@@ -2050,13 +2076,13 @@
                             <span class="tech-tag">Web3.js</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/kennethPakChungNg/AI-Education-System-Node-Backend" target="_blank" class="project-link">
+                            <a href="https://github.com/kennethPakChungNg/AI-Education-System-Node-Backend" target="_blank" class="project-link github-backend-link">
                                 <i class="fab fa-github"></i> GitHub (Backend)
                             </a>
-                            <a href="https://github.com/kennethPakChungNg/AI-Education-System-React-Frontend" target="_blank" class="project-link">
+                            <a href="https://github.com/kennethPakChungNg/AI-Education-System-React-Frontend" target="_blank" class="project-link github-frontend-link">
                                 <i class="fab fa-github"></i> GitHub (Frontend)
                             </a>
-                            <a href="https://devpost.com/software/ai-education-system" class="project-link">
+                            <a href="https://devpost.com/software/ai-education-system" class="project-link devpost-link">
                                 <i class="fas fa-external-link-alt"></i> DEVPOST
                             </a>
                         </div>

@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kenneth Ng - Full Stack Developer specializing in AI, Blockchain & Data Science. MSc Data Science at UT Austin. Building intelligent digital solutions.">
+    <meta property="og:title" content="Kenneth Ng | Full Stack Developer & Data Scientist">
+    <meta property="og:description" content="Full Stack Developer specializing in AI, Blockchain & Data Science. View my portfolio of projects and get in touch.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://kennethpakchungng.github.io/images/image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kenneth Ng | Full Stack Developer & Data Scientist">
+    <meta name="twitter:description" content="Full Stack Developer specializing in AI, Blockchain & Data Science.">
+    <link rel="icon" type="image/png" href="./images/image.png">
     <title>Kenneth Ng | Full Stack Developer & Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
         :root {
-            --primary: #2D3BE0;
-            --primary-dark: #232DA2;
-            --secondary: #6C63FF;
-            --accent: #FF6B6B;
-            --dark: #151417;
-            --light: #F5F5F7;
-            --gray: #94A3B8;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --gradient-1: linear-gradient(135deg, var(--primary), var(--secondary));
-            --gradient-2: linear-gradient(135deg, var(--accent), #FFA15F);
+            --primary: #C8956C;
+            --primary-dark: #A67548;
+            --secondary: #E8C49A;
+            --accent: #D4654A;
+            --dark: #0F0F12;
+            --dark-card: #18181F;
+            --light: #F0EDE8;
+            --gray: #9A9A9A;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(200, 149, 108, 0.15);
+            --gradient-1: linear-gradient(135deg, #C8956C, #E8C49A);
+            --gradient-2: linear-gradient(135deg, #D4654A, #C8956C);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -38,15 +48,31 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Outfit', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             line-height: 1.6;
             width: 100%;
         }
 
+        /* Subtle noise texture overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Sora', sans-serif;
             font-weight: 700;
             line-height: 1.2;
         }
@@ -72,6 +98,18 @@
         .section {
             padding: 6rem 0;
             position: relative;
+        }
+
+        .section + .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 600px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--card-border), transparent);
         }
 
         /* Navigation */
@@ -102,7 +140,7 @@
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Sora', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             display: flex;
@@ -159,7 +197,7 @@
 
         .resume-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(200, 149, 108, 0.25);
         }
 
         .mobile-menu-btn {
@@ -204,9 +242,10 @@
         }
 
         .hero-title {
-            font-size: 4.5rem;
+            font-size: 3.8rem;
             margin-bottom: 1.5rem;
             line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
         .hero-title span {
@@ -247,7 +286,7 @@
 
         .primary-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(200, 149, 108, 0.25);
         }
 
         .secondary-btn {
@@ -257,7 +296,7 @@
         }
 
         .secondary-btn:hover {
-            border-color: var(--secondary);
+            border-color: var(--primary);
             transform: translateY(-3px);
         }
 
@@ -278,7 +317,7 @@
             transform: translateY(-3px);
         }
 
-        /* Background Animation */
+        /* Hero Background Glow */
         .bg-animation {
             position: absolute;
             top: 0;
@@ -286,53 +325,36 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            opacity: 0.4;
+            overflow: hidden;
         }
 
-        .shape {
+        .bg-animation::before {
+            content: '';
             position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(200, 149, 108, 0.15) 0%, rgba(200, 149, 108, 0.05) 40%, transparent 70%);
             border-radius: 50%;
-            background: var(--gradient-1);
-            filter: blur(100px);
-            z-index: -1;
+            animation: glowPulse 8s ease-in-out infinite alternate;
         }
 
-        .shape-1 {
-            top: 20%;
-            right: 10%;
-            width: 300px;
-            height: 300px;
-            animation: floatAnimation 8s infinite alternate;
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 101, 74, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+            animation: glowPulse 12s ease-in-out infinite alternate-reverse;
         }
 
-        .shape-2 {
-            bottom: 10%;
-            left: 15%;
-            width: 200px;
-            height: 200px;
-            background: var(--gradient-2);
-            animation: floatAnimation 12s infinite alternate-reverse;
-        }
-
-        .shape-3 {
-            top: 50%;
-            left: 50%;
-            width: 150px;
-            height: 150px;
-            background: rgba(108, 99, 255, 0.5);
-            animation: floatAnimation 15s infinite alternate;
-        }
-
-        @keyframes floatAnimation {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            50% {
-                transform: translate(30px, -30px) scale(1.05);
-            }
-            100% {
-                transform: translate(-30px, 30px) scale(0.95);
-            }
+        @keyframes glowPulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
         }
 
         /* About Section */
@@ -359,23 +381,14 @@
         .about-image-container::before {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 2px solid var(--secondary);
-            border-radius: 30px;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: var(--gradient-1);
+            border-radius: 24px;
             z-index: -1;
-            animation: borderAnimation 4s infinite alternate;
-        }
-
-        @keyframes borderAnimation {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.05);
-            }
+            opacity: 0.4;
         }
 
         .section-title {
@@ -417,8 +430,8 @@
         }
 
         .stat-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(200, 149, 108, 0.08);
         }
 
         .stat-number {
@@ -448,7 +461,7 @@
         }
 
         .skill-category {
-            background: var(--card-bg);
+            background: var(--dark-card);
             border: 1px solid var(--card-border);
             border-radius: 15px;
             padding: 2rem;
@@ -456,8 +469,8 @@
         }
 
         .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(200, 149, 108, 0.1);
         }
 
         .skill-category h3 {
@@ -498,7 +511,7 @@
         }
 
         .project-card {
-            background: var(--card-bg);
+            background: var(--dark-card);
             border: 1px solid var(--card-border);
             border-radius: 15px;
             overflow: hidden;
@@ -510,9 +523,9 @@
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--secondary);
-            box-shadow: 0 10px 25px rgba(45, 59, 224, 0.15);
+            transform: translateY(-6px) scale(1.01);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(200, 149, 108, 0.12);
         }
 
         .project-image-container {
@@ -628,12 +641,13 @@
         }
 
         .tech-tag {
-            background: rgba(108, 99, 255, 0.1);
+            background: rgba(200, 149, 108, 0.1);
             color: var(--secondary);
             padding: 0.3rem 0.75rem;
             border-radius: 30px;
             font-size: 0.8rem;
             font-weight: 500;
+            border: 1px solid rgba(200, 149, 108, 0.15);
         }
 
         .project-links {
@@ -744,7 +758,7 @@
 
         .see-all-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(200, 149, 108, 0.25);
         }
 
         .project-category {
@@ -895,7 +909,7 @@
             width: 25px;
             height: 25px;
             background-color: var(--dark);
-            border: 4px solid var(--secondary);
+            border: 4px solid var(--primary);
             border-radius: 50%;
             top: 15px;
             z-index: 1;
@@ -1017,8 +1031,8 @@
         }
 
         .contact-cta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(200, 149, 108, 0.25);
         }
 
         .contact-links {
@@ -1065,7 +1079,7 @@
         }
 
         .footer-logo {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Sora', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
         }
@@ -1283,7 +1297,7 @@
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero-title {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
 
             .about-grid {
@@ -1313,7 +1327,7 @@
 
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .hero-greeting {
@@ -1427,6 +1441,24 @@
         .fade-in.appear {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Hero elements: staggered entrance animation */
+        .hero .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: heroEntrance 0.7s ease forwards;
+        }
+
+        .hero .hero-greeting { animation-delay: 0.1s; }
+        .hero .hero-title { animation-delay: 0.3s; }
+        .hero .hero-subtitle { animation-delay: 0.5s; }
+        .hero .hero-cta { animation-delay: 0.7s; }
+        .hero .social-links { animation-delay: 0.9s; }
+
+        @keyframes heroEntrance {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .stagger-in {
@@ -1638,9 +1670,6 @@
         <div class="nav-container">
             <a href="#hero" class="logo">Kenneth<span>Ng</span></a>
             <div class="nav-links" id="navLinks">
-                <button class="close-menu" id="closeMenu" style="display: none; opacity: 0; visibility: hidden; position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;">
-                    <i class="fas fa-times"></i>
-                </button>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
@@ -1665,7 +1694,7 @@
                 I enjoy building <span>intelligent</span> digital solutions.
             </h1>
             <p class="hero-subtitle fade-in">
-                Full Stack Developer & love AI, Blockchain, and Data Science.
+                Full Stack Developer specializing in AI, Blockchain & Data Science.
             </p>
             <div class="hero-cta fade-in">
                 <a href="#projects" class="hero-btn primary-btn">
@@ -1685,7 +1714,7 @@
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://x.com/ngchungpak1" class="social-link" target="_blank">
-                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-x-twitter"></i>
                 </a>
                 <a href="https://medium.com/@kennethng_44972" class="social-link" target="_blank">
                     <i class="fab fa-medium"></i>
@@ -1695,11 +1724,7 @@
                 </a>
             </div>
         </div>
-        <div class="bg-animation">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
+        <div class="bg-animation"></div>
     </section>
 
     <!-- About Section -->
@@ -1725,33 +1750,18 @@
                     </p>
                     <div class="about-qualities">
                         <div class="quality-item">
-                            <h4 class="quality-title">Perspective-taking</h4>
-                            <p class="quality-description">I naturally see problems from multiple angles, considering others' viewpoints before making decisions.</p>
-                        </div>
-                        
-                        <div class="quality-item">
                             <h4 class="quality-title">Resilience</h4>
-                            <p class="quality-description">Setbacks are temporary obstacles, not permanent roadblocks.</p>
+                            <p class="quality-description">Setbacks are temporary obstacles, not permanent roadblocks. From hospital stays to career pivots, I keep moving forward.</p>
                         </div>
-                        
-                        <div class="quality-item">
-                            <h4 class="quality-title">Genuine empathy</h4>
-                            <p class="quality-description">My diverse experiences help me connect authentically with colleagues and understand user needs deeply.</p>
-                        </div>
-                        
+
                         <div class="quality-item">
                             <h4 class="quality-title">Creative problem-solving</h4>
-                            <p class="quality-description">My non-linear background gives me fresh approaches to technical challenges.</p>
+                            <p class="quality-description">My non-linear background gives me fresh approaches to technical challenges that others might not see.</p>
                         </div>
-                        
-                        <div class="quality-item">
-                            <h4 class="quality-title">Continuous learning</h4>
-                            <p class="quality-description">I embrace new concepts with enthusiasm, knowing growth comes from stepping outside comfort zones.</p>
-                        </div>
-                        
+
                         <div class="quality-item">
                             <h4 class="quality-title">Bridging worlds</h4>
-                            <p class="quality-description">I communicate effectively across technical and non-technical domains.</p>
+                            <p class="quality-description">I communicate effectively across technical and non-technical domains, turning complex ideas into clear solutions.</p>
                         </div>
                     </div>
                     <div class="stats-grid">
@@ -1760,12 +1770,12 @@
                             <div class="stat-label">Years Experience</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">4</div>
-                            <div class="stat-label">Projects Completed</div>
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Projects Delivered</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">10+</div>
-                            <div class="stat-label">Technologies Mastered</div>
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Technologies</div>
                         </div>
                     </div>
                 </div>
@@ -2089,19 +2099,6 @@
                     </div>
                 </div>
 
-                <!-- Placeholder for future projects -->
-                <div class="project-card stagger-in" data-category="all">
-                    <div class="project-image-container" style="display: flex; justify-content: center; align-items: center; background: var(--card-bg);">
-                        <i class="fas fa-plus-circle" style="font-size: 5rem; color: var(--secondary); opacity: 0.5;"></i>
-                    </div>
-                    <div class="project-content" style="justify-content: center; align-items: center; text-align: center;">
-                        <h3 class="project-title">More Projects Coming Soon</h3>
-                        <p class="project-description">Check back later for more exciting projects!</p>
-                        <a href="https://github.com/kennethPakChungNg" target="_blank" class="project-btn" style="margin-top: 1.5rem;">
-                            <i class="fab fa-github"></i> View All GitHub Projects
-                        </a>
-                    </div>
-                </div>
             </div>
             
             <div class="modal-btn-container">
@@ -2135,17 +2132,32 @@
                     </div>
                 </div>
 
+                <!-- Full Stack Developer at Likon -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2025 - Present
+                        </div>
+                        <h3 class="timeline-title">Analyst Programmer</h3>
+                        <p class="timeline-place">Lik On Security Limited</p>
+                        <p class="timeline-description">
+                            Developing AI-powered security and property management solutions — including license plate recognition systems, Graylog AI log analysis, IoT door access integrations, facility booking systems, and AI agentic chatbots for network infrastructure.
+                        </p>
+                    </div>
+                </div>
+
                 <!-- Full Stack Developer at HKUMed -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">
                             <i class="fas fa-calendar-alt"></i>
-                            2023 - Present
+                            2023 - 2025
                         </div>
                         <h3 class="timeline-title">Full Stack Developer</h3>
                         <p class="timeline-place">HKUMed - The University of Hong Kong</p>
                         <p class="timeline-description">
-                            Leading development of Next.js applications, implementing complex form solutions, and developing public-facing websites for academic programs.
+                            Led development of Next.js applications, implemented complex form solutions, and developed public-facing websites for academic programs.
                         </p>
                     </div>
                 </div>
@@ -2297,10 +2309,6 @@
                         <i class="fas fa-envelope"></i>
                         <span>ngchungpak@gmail.com</span>
                     </a>
-                    <a href="tel:+85266588058" class="contact-link">
-                        <i class="fas fa-phone"></i>
-                        <span>+852 6658 8058</span>
-                    </a>
                     <a href="https://www.linkedin.com/in/chung-pak-ng-a6729016b/" target="_blank" class="contact-link">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
@@ -2335,7 +2343,7 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://twitter.com/ngchungpak1" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-x-twitter"></i>
                     </a>
                     <a href="https://medium.com/@kennethng_44972" target="_blank" aria-label="Medium">
                         <i class="fab fa-medium"></i>
@@ -2348,7 +2356,7 @@
                     </a>
                 </div>
                 <p class="copyright">
-                    © 2025 Kenneth Ng. All Rights Reserved.
+                    © 2026 Kenneth Ng. All Rights Reserved.
                 </p>
             </div>
         </div>
@@ -2418,10 +2426,6 @@
                 <a href="https://github.com/kennethPakChungNg/vectorshop" target="_blank" class="modal-btn modal-btn-primary">
                     <i class="fab fa-github"></i>
                     View on GitHub
-                </a>
-                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
-                    <i class="fas fa-external-link-alt"></i>
-                    Live Demo
                 </a>
             </div>
         </div>
@@ -2493,10 +2497,6 @@
                     <i class="fab fa-github"></i>
                     View on GitHub
                 </a>
-                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
-                    <i class="fas fa-external-link-alt"></i>
-                    Live Demo
-                </a>
             </div>
         </div>
     </div>
@@ -2566,10 +2566,6 @@
                 <a href="https://github.com/kennethPakChungNg/blockchain-security-analysis" target="_blank" class="modal-btn modal-btn-primary">
                     <i class="fab fa-github"></i>
                     View on GitHub
-                </a>
-                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
-                    <i class="fas fa-external-link-alt"></i>
-                    Live Demo
                 </a>
             </div>
         </div>
@@ -2641,10 +2637,6 @@
                     <i class="fab fa-github"></i>
                     View on GitHub
                 </a>
-                <a href="#" target="_blank" class="modal-btn modal-btn-secondary">
-                    <i class="fas fa-external-link-alt"></i>
-                    Live Demo
-                </a>
             </div>
         </div>
     </div>
@@ -2655,8 +2647,6 @@
         const navbar = document.getElementById('navbar');
         const navLinks = document.getElementById('navLinks');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const closeMenu = document.getElementById('closeMenu');
-
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('nav-scrolled');
@@ -2666,27 +2656,7 @@
         });
 
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.add('open');
-            // Show close button by directly modifying its style properties
-            closeMenu.style.display = 'block';
-            closeMenu.style.opacity = '1';
-            closeMenu.style.visibility = 'visible';
-            closeMenu.style.width = 'auto';
-            closeMenu.style.height = 'auto';
-            closeMenu.style.overflow = 'visible';
-            closeMenu.style.pointerEvents = 'auto';
-        });
-
-        closeMenu.addEventListener('click', () => {
-            navLinks.classList.remove('open');
-            // Hide close button again
-            closeMenu.style.display = 'none';
-            closeMenu.style.opacity = '0';
-            closeMenu.style.visibility = 'hidden';
-            closeMenu.style.width = '0';
-            closeMenu.style.height = '0';
-            closeMenu.style.overflow = 'hidden';
-            closeMenu.style.pointerEvents = 'none';
+            navLinks.classList.toggle('open');
         });
 
         // Smooth scrolling for navigation links
@@ -2710,17 +2680,39 @@
         });
 
         // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('appear');
-                }
-            });
-        }, { threshold: 0.1 });
+        const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-in');
 
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-in').forEach(el => {
-            observer.observe(el);
-        });
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Fallback: check viewport on load and scroll
+            function revealVisible() {
+                animatedElements.forEach(el => {
+                    if (!el.classList.contains('appear')) {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top < window.innerHeight * 1.2 && rect.bottom > 0) {
+                            el.classList.add('appear');
+                        }
+                    }
+                });
+            }
+            setTimeout(revealVisible, 300);
+            window.addEventListener('scroll', revealVisible, { passive: true });
+            window.addEventListener('load', revealVisible);
+        } else {
+            // No IntersectionObserver support — show everything
+            animatedElements.forEach(el => el.classList.add('appear'));
+        }
 
         // Add staggered delay to .stagger-in elements
         document.querySelectorAll('.stagger-in').forEach((el, index) => {
